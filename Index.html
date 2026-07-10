@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Peserta ATTEA Vol. 1</title>
+  <meta name="description" content="Website Pendaftaran Peserta ATTEA Vol. 1 — Daftar sekarang dan bergabung bersama kami!" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            body: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            mc: {
+              green: '#5DB735',
+              greenDark: '#3B7A1E',
+              greenDeep: '#2D5A16',
+              brown: '#8B6914',
+              brownDark: '#6B4F10',
+              brownLight: '#C4A34A',
+              dirt: '#866043',
+              dirtDark: '#6B4C33',
+              stone: '#7F7F7F',
+              stoneDark: '#5A5A5A',
+              gold: '#FCDB05',
+              goldDark: '#C4A800',
+              obsidian: '#1A0A2E',
+              endstone: '#DBD3A0',
+              sky: '#0B0E17',
+              bedrock: '#141414',
+              diamond: '#2CCDB1',
+              redstone: '#FF3B3B',
+              lapis: '#345EC3',
+              xp: '#80FF20',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================ */
+    /*  BASE & CUSTOM PROPERTIES                    */
+    /* ============================================ */
+    :root {
+      --mc-green: #5DB735;
+      --mc-green-dark: #3B7A1E;
+      --mc-brown: #8B6914;
+      --mc-gold: #FCDB05;
+      --mc-dirt: #866043;
+      --mc-stone: #7F7F7F;
+      --mc-diamond: #2CCDB1;
+      --mc-xp: #80FF20;
+      --mc-obsidian: #1A0A2E;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      image-rendering: pixelated;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #0B0E17;
+      color: #E0E0E0;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    /* Pixelated scrollbar */
+    ::-webkit-scrollbar { width: 12px; }
+    ::-webkit-scrollbar-track { background: #141414; border: 2px solid #333; }
+    ::-webkit-scrollbar-thumb { background: #5DB735; border: 2px solid #3B7A1E; }
+    ::-webkit-scrollbar-thumb:hover { background: #80FF20; }
+    /* ============================================ */
+    /*  PARTICLE CANVAS                             */
+    /* ============================================ */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* ============================================ */
+    /*  FLOATING / ANTI-GRAVITY ANIMATIONS          */
+    /* ============================================ */
+    @keyframes float-1 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-18px) rotate(0.5deg); }
+      50% { transform: translateY(-8px) rotate(-0.3deg); }
+      75% { transform: translateY(-22px) rotate(0.2deg); }
+    }
+    @keyframes float-2 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      30% { transform: translateY(-14px) rotate(-0.5deg); }
+      60% { transform: translateY(-24px) rotate(0.4deg); }
+    }
+    @keyframes float-3 {
+      0%, 100% { transform: translateY(0px); }
+      40% { transform: translateY(-20px); }
+      70% { transform: translateY(-10px); }
+    }
+    @keyframes float-4 {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-16px) scale(1.02); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+    @keyframes float-gentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 15px rgba(93,183,53,0.3), 0 0 30px rgba(93,183,53,0.1); }
+      50% { box-shadow: 0 0 25px rgba(93,183,53,0.6), 0 0 50px rgba(93,183,53,0.2); }
+    }
+    @keyframes title-glow {
+      0%, 100% { text-shadow: 0 0 10px rgba(252,219,5,0.5), 0 4px 0 #3B7A1E; }
+      50% { text-shadow: 0 0 20px rgba(252,219,5,0.9), 0 0 40px rgba(252,219,5,0.3), 0 4px 0 #3B7A1E; }
+    }
+    @keyframes xp-bar-fill {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    @keyframes achievement-slide {
+      0% { transform: translateX(120%); opacity: 0; }
+      15% { transform: translateX(0%); opacity: 1; }
+      85% { transform: translateX(0%); opacity: 1; }
+      100% { transform: translateX(120%); opacity: 0; }
+    }
+    @keyframes block-break {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+    @keyframes typing-cursor {
+      0%, 100% { border-right-color: var(--mc-xp); }
+      50% { border-right-color: transparent; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes torch-flicker {
+      0%, 100% { opacity: 0.8; transform: scaleY(1); }
+      25% { opacity: 1; transform: scaleY(1.1); }
+      50% { opacity: 0.7; transform: scaleY(0.95); }
+      75% { opacity: 0.9; transform: scaleY(1.05); }
+    }
+    .float-1 { animation: float-1 6s ease-in-out infinite; }
+    .float-2 { animation: float-2 7s ease-in-out infinite 0.5s; }
+    .float-3 { animation: float-3 5s ease-in-out infinite 1s; }
+    .float-4 { animation: float-4 8s ease-in-out infinite 0.3s; }
+    .float-slow { animation: float-slow 9s ease-in-out infinite 1.5s; }
+    .float-gentle { animation: float-gentle 4s ease-in-out infinite 0.7s; }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    /* ============================================ */
+    /*  MINECRAFT BLOCK DECORATIONS (CSS Art)       */
+    /* ============================================ */
+    .mc-block {
+      width: 64px;
+      height: 64px;
+      border: 4px solid rgba(0,0,0,0.5);
+      image-rendering: pixelated;
+      position: relative;
+    }
+    .mc-block::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    }
+    .block-grass {
+      background: linear-gradient(to bottom, #5DB735 0%, #5DB735 30%, #866043 30%, #866043 100%);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3);
+    }
+    .block-diamond {
+      background: linear-gradient(135deg, #2CCDB1 0%, #1A8A76 50%, #2CCDB1 100%);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(44,205,177,0.4);
+    }
+    .block-gold {
+      background: linear-gradient(135deg, #FCDB05 0%, #C4A800 50%, #FCDB05 100%);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(252,219,5,0.3);
+    }
+    .block-redstone {
+      background: linear-gradient(135deg, #FF3B3B 0%, #AA1111 50%, #FF3B3B 100%);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 15px rgba(255,59,59,0.4);
+    }
+    .block-lapis {
+      background: linear-gradient(135deg, #345EC3 0%, #1A3570 50%, #345EC3 100%);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3);
+    }
+    .block-obsidian {
+      background: linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 10px rgba(80,40,120,0.3);
+    }
+    /* ============================================ */
+    /*  CREEPER FACE (Pure CSS)                     */
+    /* ============================================ */
+    .creeper-face {
+      width: 80px;
+      height: 80px;
+      background: #5DB735;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      border: 4px solid #3B7A1E;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.4), 0 0 30px rgba(93,183,53,0.2);
+      image-rendering: pixelated;
+    }
+    .creeper-face .dark {
+      background: #2D5A16;
+    }
+    .creeper-face .light {
+      background: #5DB735;
+    }
+    .creeper-face .mid {
+      background: #4A9928;
+    }
+    /* ============================================ */
+    /*  TORCH DECORATION (Pure CSS)                 */
+    /* ============================================ */
+    .torch {
+      position: relative;
+      width: 16px;
+      height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .torch-flame {
+      width: 10px;
+      height: 14px;
+      background: radial-gradient(ellipse, #FCDB05 30%, #FF8C00 70%, transparent 100%);
+      border-radius: 50% 50% 30% 30%;
+      animation: torch-flicker 0.5s ease-in-out infinite;
+      box-shadow: 0 0 12px #FCDB05, 0 0 24px rgba(252,219,5,0.3);
+    }
+    .torch-stick {
+      width: 6px;
+      height: 32px;
+      background: linear-gradient(to right, #8B6914 0%, #C4A34A 50%, #8B6914 100%);
+      border: 1px solid rgba(0,0,0,0.3);
+    }
+    /* ============================================ */
+    /*  GLASSMORPHISM FORM CONTAINER                */
+    /* ============================================ */
+    .mc-glass {
+      background: rgba(20, 20, 20, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 4px solid rgba(93, 183, 53, 0.4);
+      box-shadow:
+        inset 0 0 30px rgba(93, 183, 53, 0.05),
+        0 0 40px rgba(93, 183, 53, 0.1),
+        8px 8px 0 rgba(0, 0, 0, 0.4);
+    }
+    /* ============================================ */
+    /*  FORM ELEMENTS                               */
+    /* ============================================ */
+    .mc-input {
+      background: rgba(0, 0, 0, 0.6);
+      border: 3px solid #5A5A5A;
+      color: #E0E0E0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      padding: 12px 16px;
+      width: 100%;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .mc-input:focus {
+      border-color: var(--mc-green);
+      box-shadow: 0 0 0 2px rgba(93, 183, 53, 0.3), inset 0 0 10px rgba(93, 183, 53, 0.1);
+    }
+    .mc-input:hover:not(:focus) {
+      border-color: #7F7F7F;
+    }
+    .mc-input::placeholder {
+      color: #666;
+      font-style: italic;
+    }
+    .mc-select {
+      background: rgba(0, 0, 0, 0.6);
+      border: 3px solid #5A5A5A;
+      color: #E0E0E0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      padding: 12px 16px;
+      width: 100%;
+      transition: all 0.2s ease;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235DB735' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+    .mc-select:focus {
+      border-color: var(--mc-green);
+      box-shadow: 0 0 0 2px rgba(93, 183, 53, 0.3), inset 0 0 10px rgba(93, 183, 53, 0.1);
+    }
+    .mc-textarea {
+      background: rgba(0, 0, 0, 0.6);
+      border: 3px solid #5A5A5A;
+      color: #E0E0E0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      padding: 12px 16px;
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .mc-textarea:focus {
+      border-color: var(--mc-green);
+      box-shadow: 0 0 0 2px rgba(93, 183, 53, 0.3), inset 0 0 10px rgba(93, 183, 53, 0.1);
+    }
+    .mc-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      color: var(--mc-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mc-label .label-icon {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid currentColor;
+    }
+    /* ============================================ */
+    /*  MINECRAFT BUTTON                            */
+    /* ============================================ */
+    .mc-btn {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      padding: 16px 32px;
+      background: linear-gradient(to bottom, #5DB735 0%, #4A9928 40%, #3B7A1E 100%);
+      color: #FFFFFF;
+      border: 4px solid;
+      border-color: #80FF20 #2D5A16 #2D5A16 #80FF20;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      transition: all 0.1s ease;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+      box-shadow: 0 6px 0 #2D5A16, 0 8px 10px rgba(0,0,0,0.4);
+    }
+    .mc-btn:hover:not(:disabled) {
+      background: linear-gradient(to bottom, #6ECF40 0%, #5DB735 40%, #4A9928 100%);
+      box-shadow: 0 6px 0 #2D5A16, 0 8px 15px rgba(93,183,53,0.3);
+    }
+    .mc-btn:active:not(:disabled) {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #2D5A16, 0 3px 5px rgba(0,0,0,0.4);
+      border-color: #2D5A16 #80FF20 #80FF20 #2D5A16;
+    }
+    .mc-btn:disabled {
+      background: linear-gradient(to bottom, #5A5A5A 0%, #4A4A4A 40%, #3A3A3A 100%);
+      border-color: #7F7F7F #333 #333 #7F7F7F;
+      color: #999;
+      cursor: not-allowed;
+      box-shadow: 0 4px 0 #333, 0 5px 8px rgba(0,0,0,0.3);
+    }
+    /* ============================================ */
+    /*  ACHIEVEMENT NOTIFICATION                    */
+    /* ============================================ */
+    .achievement-toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: linear-gradient(to bottom, #3B3B3B 0%, #2A2A2A 100%);
+      border: 4px solid;
+      border-color: #7F7F7F #333 #333 #7F7F7F;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      animation: achievement-slide 4s ease-in-out forwards;
+      box-shadow: 0 0 30px rgba(252,219,5,0.3);
+      max-width: 380px;
+    }
+    .achievement-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #FCDB05 0%, #C4A800 100%);
+      border: 3px solid rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .achievement-text h4 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      color: #FCDB05;
+      margin-bottom: 6px;
+    }
+    .achievement-text p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: #CCC;
+      line-height: 1.4;
+    }
+    /* ============================================ */
+    /*  XP BAR                                      */
+    /* ============================================ */
+    .xp-bar-container {
+      width: 100%;
+      height: 12px;
+      background: #1A1A1A;
+      border: 2px solid #333;
+      overflow: hidden;
+      position: relative;
+    }
+    .xp-bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, #80FF20 0%, #5DB735 100%);
+      width: 0%;
+      box-shadow: 0 0 8px rgba(128,255,32,0.4);
+    }
+    .xp-bar-fill.animate {
+      animation: xp-bar-fill 2s ease-out forwards;
+    }
+    /* ============================================ */
+    /*  HOTBAR / INVENTORY STYLE INDICATORS         */
+    /* ============================================ */
+    .hotbar {
+      display: flex;
+      gap: 2px;
+      padding: 4px;
+      background: #1A1A1A;
+      border: 3px solid;
+      border-color: #555 #222 #222 #555;
+    }
+    .hotbar-slot {
+      width: 48px;
+      height: 48px;
+      background: #555;
+      border: 2px solid;
+      border-color: #333 #777 #777 #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .hotbar-slot:hover {
+      background: #666;
+      box-shadow: inset 0 0 10px rgba(252,219,5,0.2);
+    }
+    .hotbar-slot.active {
+      border-color: #FFF #999 #999 #FFF;
+      background: #4A4A4A;
+    }
+    /* ============================================ */
+    /*  COUNTDOWN / REDIRECT NOTICE                 */
+    /* ============================================ */
+    .redirect-notice {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.9);
+      border-top: 4px solid var(--mc-green);
+      padding: 16px;
+      text-align: center;
+      z-index: 9998;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .redirect-notice.show {
+      transform: translateY(0);
+    }
+    /* ============================================ */
+    /*  STATS COUNTER                                */
+    /* ============================================ */
+    .stat-card {
+      background: rgba(0,0,0,0.5);
+      border: 3px solid;
+      border-color: #555 #222 #222 #555;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.8rem;
+      color: var(--mc-xp);
+      display: block;
+    }
+    .stat-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    /* ============================================ */
+    /*  RESPONSIVE                                  */
+    /* ============================================ */
+    @media (max-width: 640px) {
+      .mc-label { font-size: 0.55rem; }
+      .mc-btn { font-size: 0.7rem; padding: 14px 24px; }
+      .creeper-face { width: 56px; height: 56px; }
+      .mc-block { width: 40px; height: 40px; }
+      .achievement-toast { max-width: 300px; right: 12px; top: 12px; padding: 12px; }
+      .achievement-icon { width: 36px; height: 36px; font-size: 18px; }
+      .achievement-text h4 { font-size: 0.5rem; }
+      .achievement-text p { font-size: 0.75rem; }
+      .hotbar-slot { width: 36px; height: 36px; font-size: 16px; }
+    }
+    /* ============================================ */
+    /*  TOOLTIP                                     */
+    /* ============================================ */
+    .mc-tooltip {
+      position: relative;
+    }
+    .mc-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1A0A2E;
+      border: 2px solid #5A28A0;
+      color: #E0E0E0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .mc-tooltip:hover::after {
+      opacity: 1;
+    }
+    /* ============================================ */
+    /*  FOOTER BEDROCK                               */
+    /* ============================================ */
+    .bedrock-strip {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #141414 0px, #141414 8px,
+        #1E1E1E 8px, #1E1E1E 16px,
+        #0A0A0A 16px, #0A0A0A 24px,
+        #1A1A1A 24px, #1A1A1A 32px
+      );
+      image-rendering: pixelated;
+    }
+    /* ============================================ */
+    /*  FIELD VALIDATION SHAKE                       */
+    /* ============================================ */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+    .shake {
+      animation: shake 0.4s ease-in-out;
+      border-color: #FF3B3B !important;
+    }
+    /* ============================================ */
+    /*  CRAFTING PROGRESS                            */
+    /* ============================================ */
+    .crafting-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 32px);
+      grid-template-rows: repeat(3, 32px);
+      gap: 2px;
+      padding: 4px;
+      background: #2A2A2A;
+      border: 3px solid;
+      border-color: #555 #222 #222 #555;
+    }
+    .crafting-cell {
+      background: #555;
+      border: 1px solid;
+      border-color: #333 #777 #777 #333;
+      transition: background 0.3s;
+    }
+    .crafting-cell.filled {
+      background: var(--mc-green);
+      box-shadow: inset 0 0 6px rgba(128,255,32,0.4);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative">
+  <!-- ==================== PARTICLE CANVAS ==================== -->
+  <canvas id="particle-canvas"></canvas>
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="relative z-10">
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden">
+      <!-- Floating Minecraft Blocks (Decorations) -->
+      <div class="absolute top-[8%] left-[5%] float-1 hidden md:block">
+        <div class="mc-block block-grass" style="width:48px;height:48px;"></div>
+      </div>
+      <div class="absolute top-[15%] right-[8%] float-2 hidden md:block">
+        <div class="mc-block block-diamond" style="width:40px;height:40px;"></div>
+      </div>
+      <div class="absolute bottom-[20%] left-[10%] float-3 hidden md:block">
+        <div class="mc-block block-gold" style="width:52px;height:52px;"></div>
+      </div>
+      <div class="absolute bottom-[15%] right-[12%] float-slow hidden md:block">
+        <div class="mc-block block-redstone" style="width:36px;height:36px;"></div>
+      </div>
+      <div class="absolute top-[40%] left-[3%] float-4 hidden lg:block">
+        <div class="mc-block block-lapis" style="width:32px;height:32px;"></div>
+      </div>
+      <div class="absolute top-[60%] right-[4%] float-gentle hidden lg:block">
+        <div class="mc-block block-obsidian" style="width:44px;height:44px;"></div>
+      </div>
+      <!-- Floating Torches -->
+      <div class="absolute top-[25%] left-[18%] float-2 hidden md:block">
+        <div class="torch"><div class="torch-flame"></div><div class="torch-stick"></div></div>
+      </div>
+      <div class="absolute top-[35%] right-[15%] float-3 hidden md:block">
+        <div class="torch"><div class="torch-flame"></div><div class="torch-stick"></div></div>
+      </div>
+      <!-- Creeper Face (Left) -->
+      <div class="absolute top-[30%] left-[6%] float-slow hidden lg:block opacity-60">
+        <div class="creeper-face" style="width:64px;height:64px;" id="creeper-left">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+      <!-- Creeper Face (Right) -->
+      <div class="absolute bottom-[30%] right-[6%] float-4 hidden lg:block opacity-60">
+        <div class="creeper-face" style="width:64px;height:64px;" id="creeper-right">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+      <!-- Hero Content -->
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Subtitle -->
+        <p class="font-pixel text-[0.6rem] sm:text-xs text-mc-diamond tracking-widest mb-6 float-gentle fade-in-up" style="animation-delay: 0.2s;">
+          ⛏️ MEMBUKA GERBANG DIMENSI BARU ⛏️
+        </p>
+        <!-- Main Title -->
+        <h1 class="font-pixel text-mc-gold text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-4 float-1 fade-in-up" style="animation: float-1 6s ease-in-out infinite, title-glow 3s ease-in-out infinite, fadeInUp 0.8s ease-out 0.4s forwards; opacity:0;">
+          PENDAFTARAN<br />PESERTA
+        </h1>
+        <h2 class="font-pixel text-mc-green text-2xl sm:text-3xl md:text-4xl lg:text-5xl float-2 fade-in-up" style="animation: float-2 7s ease-in-out infinite 0.5s, title-glow 3s ease-in-out infinite 0.5s, fadeInUp 0.8s ease-out 0.6s forwards; opacity:0;">
+          ATTEA VOL. 1
+        </h2>
+        <!-- Decorative hotbar -->
+        <div class="flex justify-center mt-10 float-3 fade-in-up" style="animation-delay: 0.8s;">
+          <div class="hotbar">
+            <div class="hotbar-slot active mc-tooltip" data-tooltip="Daftar!">📋</div>
+            <div class="hotbar-slot mc-tooltip" data-tooltip="Komunitas">🌍</div>
+            <div class="hotbar-slot mc-tooltip" data-tooltip="Belajar">📖</div>
+            <div class="hotbar-slot mc-tooltip" data-tooltip="Tumbuh">🌱</div>
+            <div class="hotbar-slot mc-tooltip" data-tooltip="Bersinar">⭐</div>
+            <div class="hotbar-slot mc-tooltip" data-tooltip="Bersama">🤝</div>
+            <div class="hotbar-slot mc-tooltip" data-tooltip="Level Up!">🏆</div>
+          </div>
+        </div>
+        <!-- Tagline -->
+        <p class="font-body text-gray-400 text-base sm:text-lg mt-8 max-w-xl mx-auto leading-relaxed float-gentle fade-in-up" style="animation-delay: 1s;">
+          Bersiaplah untuk petualangan terbesar — masuki dunia ATTEA, temukan potensimu, dan <span class="text-mc-gold font-semibold">craft masa depanmu</span> bersama kami.
+        </p>
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-10 max-w-md mx-auto float-4 fade-in-up" style="animation-delay: 1.2s;">
+          <div class="stat-card">
+            <span class="stat-number" id="stat-slots">50</span>
+            <span class="stat-label">Slot</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">7</span>
+            <span class="stat-label">Distrik</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Misi</span>
+          </div>
+        </div>
+        <!-- Scroll CTA -->
+        <div class="mt-12 float-gentle fade-in-up" style="animation-delay: 1.4s;">
+          <a href="#form-section" class="inline-flex flex-col items-center gap-2 text-mc-green hover:text-mc-xp transition-colors group">
+            <span class="font-pixel text-[0.55rem] tracking-wider">SCROLL UNTUK DAFTAR</span>
+            <svg class="w-6 h-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="square" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ========== FORM SECTION ========== -->
+    <section id="form-section" class="py-16 px-4 relative">
+      <!-- Section divider (grass blocks) -->
+      <div class="w-full h-4 mb-12" style="background: repeating-linear-gradient(90deg, #5DB735 0px, #5DB735 16px, #4A9928 16px, #4A9928 32px, #3B7A1E 32px, #3B7A1E 48px); image-rendering: pixelated; border-bottom: 8px solid #866043;"></div>
+      <div class="max-w-2xl mx-auto">
+        <!-- Form Title -->
+        <div class="text-center mb-10 float-gentle">
+          <h2 class="font-pixel text-mc-gold text-sm sm:text-base md:text-lg mb-3">
+            📝 FORMULIR PENDAFTARAN
+          </h2>
+          <p class="font-body text-gray-400 text-sm sm:text-base">
+            Isi semua field di bawah ini untuk mendaftar sebagai peserta ATTEA Vol. 1
+          </p>
+          <!-- XP Bar -->
+          <div class="mt-4 max-w-xs mx-auto">
+            <div class="flex justify-between mb-1">
+              <span class="font-pixel text-[0.5rem] text-mc-xp">XP PENDAFTARAN</span>
+              <span class="font-pixel text-[0.5rem] text-gray-500" id="xp-percent">0%</span>
+            </div>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="xp-bar" style="width: 0%; transition: width 0.5s ease;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- The Form -->
+        <form id="registration-form" class="mc-glass p-6 sm:p-8 md:p-10 float-2" novalidate>
+          <!-- Field: Nama Lengkap -->
+          <div class="mb-6" id="field-nama">
+            <label class="mc-label" for="nama">
+              <span class="label-icon" style="background:#5DB735;"></span>
+              Nama Lengkap Peserta
+            </label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              class="mc-input"
+              placeholder="Masukkan nama lengkapmu..."
+              required
+              autocomplete="name"
+            />
+            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-nama">⚠ Nama wajib diisi, Crafter!</p>
+          </div>
+          <!-- Field: Distrik -->
+          <div class="mb-6" id="field-distrik">
+            <label class="mc-label" for="distrik">
+              <span class="label-icon" style="background:#FCDB05;"></span>
+              Distrik
+            </label>
+            <select id="distrik" name="distrik" class="mc-select" required>
+              <option value="" disabled selected>— Pilih Distrik —</option>
+              <option value="Sabi">🏘️ Sabi</option>
+              <option value="Asyir">🏘️ Asyir</option>
+              <option value="Darrasah">🏘️ Darrasah</option>
+              <option value="Tabbah">🏘️ Tabbah</option>
+              <option value="Zahro">🏘️ Zahro</option>
+              <option value="Tamin">🏘️ Tamin</option>
+              <option value="Yang lain">🌍 Yang lain..</option>
+            </select>
+            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-distrik">⚠ Pilih distrikmu!</p>
+          </div>
+          <!-- Field: Nama Mediator -->
+          <div class="mb-6" id="field-mediator">
+            <label class="mc-label" for="mediator">
+              <span class="label-icon" style="background:#2CCDB1;"></span>
+              Nama Mediator
+            </label>
+            <input
+              type="text"
+              id="mediator"
+              name="mediator"
+              class="mc-input"
+              placeholder="Siapa yang merekomendasikanmu..."
+              required
+            />
+            <p class="font-body text-gray-500 text-xs mt-1">Nama orang yang membawa/merekomendasikanmu</p>
+            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-mediator">⚠ Nama mediator wajib diisi!</p>
+          </div>
+          <!-- Field: Nomor WhatsApp -->
+          <div class="mb-6" id="field-whatsapp">
+            <label class="mc-label" for="whatsapp">
+              <span class="label-icon" style="background:#80FF20;"></span>
+              Nomor WhatsApp Aktif
+            </label>
+            <input
+              type="tel"
+              id="whatsapp"
+              name="whatsapp"
+              class="mc-input"
+              placeholder="08xxxxxxxxxx"
+              required
+              pattern="^[0-9+]{10,15}$"
+            />
+            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-whatsapp">⚠ Masukkan nomor WA yang valid!</p>
+          </div>
+          <!-- Field: Motivasi -->
+          <div class="mb-8" id="field-motivasi">
+            <label class="mc-label" for="motivasi">
+              <span class="label-icon" style="background:#FF8C00;"></span>
+              Motivasi Ikut ATTEA
+            </label>
+            <textarea
+              id="motivasi"
+              name="motivasi"
+              class="mc-textarea mc-input"
+              placeholder="Ceritakan motivasimu bergabung dengan ATTEA Vol. 1..."
+              required
+              rows="4"
+            ></textarea>
+            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-motivasi">⚠ Tulis motivasimu, minimal 10 karakter!</p>
+          </div>
+          <!-- Crafting Grid Progress (Loading Indicator) -->
+          <div id="crafting-progress" class="hidden mb-6 flex flex-col items-center gap-3">
+            <div class="crafting-grid" id="crafting-grid">
+              <div class="crafting-cell" data-idx="0"></div>
+              <div class="crafting-cell" data-idx="1"></div>
+              <div class="crafting-cell" data-idx="2"></div>
+              <div class="crafting-cell" data-idx="3"></div>
+              <div class="crafting-cell" data-idx="4"></div>
+              <div class="crafting-cell" data-idx="5"></div>
+              <div class="crafting-cell" data-idx="6"></div>
+              <div class="crafting-cell" data-idx="7"></div>
+              <div class="crafting-cell" data-idx="8"></div>
+            </div>
+            <p class="font-pixel text-[0.55rem] text-mc-xp">CRAFTING PENDAFTARAN...</p>
+          </div>
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" id="submit-btn" class="mc-btn w-full sm:w-auto">
+              ⚔️ DAFTAR SEKARANG ⚔️
+            </button>
+          </div>
+          <!-- Additional Note -->
+          <p class="text-center font-body text-gray-500 text-xs mt-6">
+            Dengan mendaftar, kamu siap untuk petualangan epik bersama ATTEA 🎮
+          </p>
+        </form>
+        <!-- Fun Tip -->
+        <div class="mt-8 p-4 border-l-4 border-mc-gold bg-black/30 float-slow">
+          <p class="font-pixel text-[0.5rem] text-mc-gold mb-2">💡 PRO TIP</p>
+          <p class="font-body text-gray-400 text-sm">
+            Pastikan nomor WhatsApp yang kamu masukkan aktif ya! Kamu akan diarahkan ke grup WhatsApp peserta setelah pendaftaran berhasil.
+          </p>
+        </div>
+      </div>
+      <!-- Section divider bottom (stone) -->
+      <div class="w-full h-3 mt-12" style="background: repeating-linear-gradient(90deg, #7F7F7F 0px, #7F7F7F 12px, #6A6A6A 12px, #6A6A6A 24px, #5A5A5A 24px, #5A5A5A 36px); image-rendering: pixelated;"></div>
+    </section>
+    <!-- ========== FOOTER ========== -->
+    <footer class="py-8 px-4 text-center relative">
+      <div class="bedrock-strip mb-6"></div>
+      <p class="font-pixel text-[0.5rem] text-gray-600 mb-2">ATTEA VOL. 1 © 2026</p>
+      <p class="font-body text-gray-500 text-xs">
+        Dibuat dengan 💚 dan banyak ⛏️ — Semua hak dilindungi
+      </p>
+      <div class="bedrock-strip mt-6"></div>
+    </footer>
+  </main>
+  <!-- ==================== REDIRECT NOTICE ==================== -->
+  <div id="redirect-notice" class="redirect-notice">
+    <p class="font-pixel text-[0.6rem] text-mc-xp mb-2">🎮 MENUJU GRUP WHATSAPP...</p>
+    <p class="font-body text-gray-400 text-sm">Kamu akan diarahkan dalam <span id="countdown" class="text-mc-gold font-bold">3</span> detik</p>
+    <div class="xp-bar-container mt-3 max-w-xs mx-auto">
+      <div class="xp-bar-fill" id="redirect-xp-bar"></div>
+    </div>
+  </div>
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ========================================
+    //  PARTICLE SYSTEM (Square/Pixelated Stars)
+    // ========================================
+    (function initParticles() {
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const PARTICLE_COUNT = 80;
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      const colors = [
+        'rgba(93,183,53,0.4)',   // green
+        'rgba(252,219,5,0.3)',   // gold
+        'rgba(128,255,32,0.3)',  // xp green
+        'rgba(44,205,177,0.2)',  // diamond
+        'rgba(255,255,255,0.15)',// white
+        'rgba(134,96,67,0.2)',   // dirt
+      ];
+      function createParticle() {
+        return {
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 4 + 2,
+          speedX: (Math.random() - 0.5) * 0.4,
+          speedY: (Math.random() - 0.5) * 0.3 - 0.15,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.02,
+          twinkle: Math.random() * Math.PI * 2,
+          twinkleSpeed: Math.random() * 0.03 + 0.01,
+        };
+      }
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle());
+      }
+      function drawParticle(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        const alpha = 0.5 + Math.sin(p.twinkle) * 0.5;
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+      }
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.speedX;
+          p.y += p.speedY;
+          p.rotation += p.rotSpeed;
+          p.twinkle += p.twinkleSpeed;
+          // Wrap around
+          if (p.x < -10) p.x = canvas.width + 10;
+          if (p.x > canvas.width + 10) p.x = -10;
+          if (p.y < -10) p.y = canvas.height + 10;
+          if (p.y > canvas.height + 10) p.y = -10;
+          drawParticle(p);
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+    // ========================================
+    //  CREEPER FACE RENDERER (CSS Grid Pixel Art)
+    // ========================================
+    (function renderCreepers() {
+      // 8x8 grid: 0 = light, 1 = dark (eyes/mouth), 2 = mid
+      const creeperMap = [
+        [2,0,0,0,0,0,0,2],
+        [0,0,1,1,1,1,0,0],
+        [0,0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0,0],
+        [0,0,1,1,1,1,0,0],
+        [0,0,1,0,0,1,0,0],
+        [0,0,1,0,0,1,0,0],
+        [2,0,0,0,0,0,0,2],
+      ];
+      function renderCreeper(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = '';
+        creeperMap.forEach(row => {
+          row.forEach(val => {
+            const cell = document.createElement('div');
+            cell.className = val === 1 ? 'dark' : val === 2 ? 'mid' : 'light';
+            el.appendChild(cell);
+          });
+        });
+      }
+      renderCreeper('creeper-left');
+      renderCreeper('creeper-right');
+    })();
+    // ========================================
+    //  XP BAR (Form Completion Progress)
+    // ========================================
+    const formFields = ['nama', 'distrik', 'mediator', 'whatsapp', 'motivasi'];
+    const xpBar = document.getElementById('xp-bar');
+    const xpPercent = document.getElementById('xp-percent');
+    function updateXP() {
+      let filled = 0;
+      formFields.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.value.trim().length > 0) filled++;
+      });
+      const pct = Math.round((filled / formFields.length) * 100);
+      xpBar.style.width = pct + '%';
+      xpPercent.textContent = pct + '%';
+    }
+    formFields.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', updateXP);
+        el.addEventListener('change', updateXP);
+      }
+    });
+    // ========================================
+    //  FORM VALIDATION
+    // ========================================
+    function validateField(id, condition, errorId) {
+      const field = document.getElementById(id);
+      const error = document.getElementById(errorId);
+      const wrapper = document.getElementById('field-' + id.replace('whatsapp', 'whatsapp'));
+      if (!condition) {
+        error.classList.remove('hidden');
+        field.classList.add('shake');
+        setTimeout(() => field.classList.remove('shake'), 500);
+        return false;
+      } else {
+        error.classList.add('hidden');
+        return true;
+      }
+    }
+    function validateForm() {
+      const nama = document.getElementById('nama').value.trim();
+      const distrik = document.getElementById('distrik').value;
+      const mediator = document.getElementById('mediator').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const motivasi = document.getElementById('motivasi').value.trim();
+      let valid = true;
+      if (!validateField('nama', nama.length > 0, 'error-nama')) valid = false;
+      if (!validateField('distrik', distrik.length > 0, 'error-distrik')) valid = false;
+      if (!validateField('mediator', mediator.length > 0, 'error-mediator')) valid = false;
+      if (!validateField('whatsapp', /^[0-9+]{10,15}$/.test(whatsapp), 'error-whatsapp')) valid = false;
+      if (!validateField('motivasi', motivasi.length >= 10, 'error-motivasi')) valid = false;
+      return valid;
+    }
+    // ========================================
+    //  CRAFTING ANIMATION (Loading)
+    // ========================================
+    function playCraftingAnimation() {
+      return new Promise(resolve => {
+        const grid = document.getElementById('crafting-progress');
+        const cells = document.querySelectorAll('.crafting-cell');
+        grid.classList.remove('hidden');
+        grid.classList.add('flex');
+        let idx = 0;
+        const interval = setInterval(() => {
+          if (idx < cells.length) {
+            cells[idx].classList.add('filled');
+            idx++;
+          } else {
+            clearInterval(interval);
+            setTimeout(() => {
+              grid.classList.add('hidden');
+              grid.classList.remove('flex');
+              cells.forEach(c => c.classList.remove('filled'));
+              resolve();
+            }, 400);
+          }
+        }, 250);
+      });
+    }
+    // ========================================
+    //  ACHIEVEMENT NOTIFICATION
+    // ========================================
+    function showAchievement(title, message) {
+      // Remove any existing
+      document.querySelectorAll('.achievement-toast').forEach(el => el.remove());
+      const toast = document.createElement('div');
+      toast.className = 'achievement-toast';
+      toast.innerHTML = `
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-text">
+          <h4>${title}</h4>
+          <p>${message}</p>
+        </div>
+      `;
+      document.body.appendChild(toast);
+      // Auto-remove after animation
+      setTimeout(() => toast.remove(), 4200);
+    }
+    // ========================================
+    //  REDIRECT WITH COUNTDOWN
+    // ========================================
+    function startRedirectCountdown(url, seconds) {
+      const notice = document.getElementById('redirect-notice');
+      const countdownEl = document.getElementById('countdown');
+      const redirectXP = document.getElementById('redirect-xp-bar');
+      notice.classList.add('show');
+      redirectXP.style.transition = `width ${seconds}s linear`;
+      redirectXP.style.width = '100%';
+      let remaining = seconds;
+      countdownEl.textContent = remaining;
+      const interval = setInterval(() => {
+        remaining--;
+        countdownEl.textContent = remaining;
+        if (remaining <= 0) {
+          clearInterval(interval);
+          window.open(url, '_blank');
+          notice.classList.remove('show');
+          // Reset form
+          document.getElementById('registration-form').reset();
+          updateXP();
+          // Reset button
+          const btn = document.getElementById('submit-btn');
+          btn.disabled = false;
+          btn.innerHTML = '⚔️ DAFTAR SEKARANG ⚔️';
+        }
+      }, 1000);
+    }
+    // ========================================
+    //  FORM SUBMIT HANDLER
+    // ========================================
+    document.getElementById('registration-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!validateForm()) return;
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '⏳ LOADING...';
+      // Play crafting animation
+      await playCraftingAnimation();
+      // Simulate data submission
+      setTimeout(() => {
+        // Show Achievement
+        showAchievement('Achievement Get!', 'Pendaftaran ATTEA Vol. 1 berhasil! 🎉');
+        btn.innerHTML = '✅ TERDAFTAR!';
+        // Start redirect countdown after 1.5s
+        setTimeout(() => {
+          // Replace this URL with your actual WhatsApp group invite link
+          const waGroupLink = 'https://chat.whatsapp.com/CONTOH_LINK_GRUP';
+          startRedirectCountdown(waGroupLink, 3);
+        }, 1500);
+      }, 800);
+    });
+    // ========================================
+    //  INTERSECTION OBSERVER (Fade-in on scroll)
+    // ========================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      observer.observe(el);
+    });
+    // ========================================
+    //  ANIMATED STAT COUNTER
+    // ========================================
+    function animateCounter(el, target, duration) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      function update() {
+        start += increment;
+        if (start >= target) {
+          el.textContent = target;
+          return;
+        }
+        el.textContent = Math.floor(start);
+        requestAnimationFrame(update);
+      }
+      update();
+    }
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.textContent, 10);
+          animateCounter(el, target, 1500);
+          statObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+    // ========================================
+    //  SOUND EFFECT VISUAL FEEDBACK (no audio)
+    // ========================================
+    document.querySelectorAll('.mc-input, .mc-select, .mc-textarea').forEach(el => {
+      el.addEventListener('focus', function() {
+        this.style.transition = 'all 0.15s ease';
+      });
+    });
+    // ========================================
+    //  PARALLAX on mouse move (subtle)
+    // ========================================
+    document.addEventListener('mousemove', (e) => {
+      const blocks = document.querySelectorAll('.mc-block');
+      const mx = (e.clientX / window.innerWidth - 0.5) * 2;
+      const my = (e.clientY / window.innerHeight - 0.5) * 2;
+      blocks.forEach((block, i) => {
+        const depth = (i + 1) * 3;
+        block.style.transform = `translate(${mx * depth}px, ${my * depth}px)`;
+      });
+    });
+    // ========================================
+    //  KONAMI CODE EASTER EGG 🎮
+    // ========================================
+    const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    let konamiIndex = 0;
+    document.addEventListener('keydown', (e) => {
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          konamiIndex = 0;
+          showAchievement('🕹️ SECRET FOUND!', 'Kamu menemukan Konami Code! +9999 XP');
+          document.body.style.transition = 'filter 1s';
+          document.body.style.filter = 'hue-rotate(90deg)';
+          setTimeout(() => {
+            document.body.style.filter = 'none';
+          }, 3000);
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
+    console.log('%c⛏️ ATTEA Vol. 1 — Selamat datang, Crafter! ⛏️', 'font-size: 16px; color: #5DB735; font-weight: bold; background: #0B0E17; padding: 8px 16px; border: 2px solid #5DB735;');
+    console.log('%c🎮 Coba ketik Konami Code: ↑↑↓↓←→←→BA', 'color: #FCDB05;');
+  </script>
+</body>
+</html>
