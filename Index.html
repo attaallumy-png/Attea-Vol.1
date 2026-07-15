@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pendaftaran Peserta ATTEA Vol. 1</title>
-  <meta name="description" content="Website Pendaftaran Peserta ATTEA Vol. 1 — Daftar sekarang dan bergabung bersama kami!" />
-  <!-- Tailwind CSS CDN -->
+  <meta name="description" content="Website Pendaftaran Peserta ATTEA Vol. 1 - Daftar sekarang dan bergabung bersama kami!" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,283 +14,178 @@
           fontFamily: {
             pixel: ['"Press Start 2P"', 'monospace'],
             body: ['Outfit', 'sans-serif'],
-          },
-          colors: {
-            mc: {
-              green: '#5DB735',
-              greenDark: '#3B7A1E',
-              greenDeep: '#2D5A16',
-              brown: '#8B6914',
-              brownDark: '#6B4F10',
-              brownLight: '#C4A34A',
-              dirt: '#866043',
-              dirtDark: '#6B4C33',
-              stone: '#7F7F7F',
-              stoneDark: '#5A5A5A',
-              gold: '#FCDB05',
-              goldDark: '#C4A800',
-              obsidian: '#1A0A2E',
-              endstone: '#DBD3A0',
-              sky: '#0B0E17',
-              bedrock: '#141414',
-              diamond: '#2CCDB1',
-              redstone: '#FF3B3B',
-              lapis: '#345EC3',
-              xp: '#80FF20',
-            }
           }
         }
       }
     }
   </script>
-  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
   <style>
-    /* ============================================ */
-    /*  BASE & CUSTOM PROPERTIES                    */
-    /*  ROOT VARIABLES                              */
-    /* ============================================ */
     :root {
-      --mc-green: #5DB735;
-      --mc-green-dark: #3B7A1E;
-      --mc-green-neon: #80FF20;
-      --mc-gold: #FCDB05;
-      --mc-gold-dark: #C4A800;
-      --mc-brown: #8B6914;
-      --mc-gold: #FCDB05;
-      --mc-dirt: #866043;
-      --mc-stone: #7F7F7F;
-      --mc-diamond: #2CCDB1;
-      --mc-redstone: #FF3B3B;
-      --mc-lapis: #345EC3;
-      --mc-obsidian: #1A0A2E;
-      --mc-xp: #80FF20;
-      --mc-obsidian: #1A0A2E;
-      --mc-purple: #A855F7;
-      --mc-pink: #EC4899;
-      --mc-cyan: #06B6D4;
-      --mc-orange: #F97316;
-      --mc-emerald: #10B981;
-      --nether-red: #FF4444;
-      --nether-orange: #FF8800;
-      --portal-purple: #9B30FF;
-      --enchant-blue: #6366F1;
+      --green: #5DB735;
+      --green-dark: #3B7A1E;
+      --green-neon: #80FF20;
+      --gold: #FCDB05;
+      --gold-dark: #C4A800;
+      --diamond: #2CCDB1;
+      --redstone: #FF3B3B;
+      --purple: #A855F7;
+      --pink: #EC4899;
+      --cyan: #06B6D4;
+      --orange: #F97316;
+      --emerald: #10B981;
+      --lapis: #345EC3;
+      --dirt: #866043;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       image-rendering: pixelated;
     }
-    html {
-      scroll-behavior: smooth;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; image-rendering: pixelated; }
+
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Outfit', sans-serif;
-      background-color: #0B0E17;
       color: #E0E0E0;
       overflow-x: hidden;
       min-height: 100vh;
       background: #050510;
     }
-    /* Pixelated scrollbar */
-    ::-webkit-scrollbar { width: 12px; }
-    ::-webkit-scrollbar-track { background: #141414; border: 2px solid #333; }
-    ::-webkit-scrollbar-thumb { background: #5DB735; border: 2px solid #3B7A1E; }
-    ::-webkit-scrollbar-thumb:hover { background: #80FF20; }
+
     ::-webkit-scrollbar { width: 14px; }
     ::-webkit-scrollbar-track { background: #0a0a1a; border: 2px solid #1a1a3a; }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(to bottom, var(--mc-green), var(--mc-diamond));
+      background: linear-gradient(to bottom, var(--green), var(--diamond));
       border: 2px solid #1a1a3a;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(to bottom, var(--mc-xp), var(--mc-gold));
+      background: linear-gradient(to bottom, var(--green-neon), var(--gold));
     }
-    /* ============================================ */
-    /*  PARTICLE CANVAS                             */
-    /*  ANIMATED BACKGROUND                         */
-    /* ============================================ */
-    #particle-canvas {
+
     body::before {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background:
-        radial-gradient(ellipse at 20% 50%, rgba(93,183,53,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(168,85,247,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(6,182,212,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 90%, rgba(236,72,153,0.05) 0%, transparent 40%),
-        radial-gradient(ellipse at 10% 10%, rgba(99,102,241,0.06) 0%, transparent 40%);
+        radial-gradient(ellipse at 20% 50%, rgba(93,183,53,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(168,85,247,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(6,182,212,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 90%, rgba(236,72,153,0.04) 0%, transparent 40%);
       z-index: 0;
       pointer-events: none;
-      animation: bgShift 12s ease-in-out infinite alternate;
     }
-    @keyframes bgShift {
-      0% { opacity: 0.7; }
-      50% { opacity: 1; }
-      100% { opacity: 0.8; }
-    }
-    /* ============================================ */
-    /*  CURSOR TRAIL                                */
-    /* ============================================ */
-    .cursor-particle {
+
+    /* ---- Cursor Trail ---- */
+    .cursor-dot {
       position: fixed;
       pointer-events: none;
       z-index: 9999;
-      border-radius: 0;
-      animation: cursorFade 0.8s ease-out forwards;
+      animation: dotFade 0.7s ease-out forwards;
     }
-    @keyframes cursorFade {
+    @keyframes dotFade {
       0% { transform: scale(1) rotate(0deg); opacity: 1; }
       100% { transform: scale(0) rotate(180deg); opacity: 0; }
     }
-    /* ============================================ */
-    /*  FLOATING / ANTI-GRAVITY ANIMATIONS          */
-    /* ============================================ */
-    @keyframes float-1 {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      25% { transform: translateY(-18px) rotate(0.5deg); }
-      50% { transform: translateY(-8px) rotate(-0.3deg); }
-      75% { transform: translateY(-22px) rotate(0.2deg); }
+
+    /* ---- Float Animations ---- */
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
       25% { transform: translateY(-20px) rotate(1deg); }
-      50% { transform: translateY(-10px) rotate(-0.5deg); }
-      75% { transform: translateY(-25px) rotate(0.3deg); }
+      75% { transform: translateY(-25px) rotate(-0.5deg); }
     }
-    @keyframes float-2 {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      30% { transform: translateY(-14px) rotate(-0.5deg); }
-      60% { transform: translateY(-24px) rotate(0.4deg); }
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0); }
       30% { transform: translateY(-16px) rotate(-1deg); }
       60% { transform: translateY(-28px) rotate(0.5deg); }
     }
-    @keyframes float-3 {
-      0%, 100% { transform: translateY(0px); }
-      40% { transform: translateY(-20px); }
-      70% { transform: translateY(-10px); }
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0); }
       40% { transform: translateY(-22px) rotate(0.8deg); }
-      70% { transform: translateY(-12px) rotate(-0.4deg); }
+      70% { transform: translateY(-12px); }
     }
-    @keyframes float-4 {
-      0%, 100% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-16px) scale(1.02); }
+    @keyframes float4 {
+      0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-18px) scale(1.03); }
     }
-    @keyframes float-slow {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(1deg); }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-14px) rotate(1.5deg); }
     }
-    @keyframes float-gentle {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    @keyframes float-wild {
+    @keyframes floatWild {
       0%   { transform: translate(0,0) rotate(0deg); }
       25%  { transform: translate(8px,-20px) rotate(5deg); }
       50%  { transform: translate(-5px,-10px) rotate(-3deg); }
       75%  { transform: translate(3px,-25px) rotate(2deg); }
       100% { transform: translate(0,0) rotate(0deg); }
     }
-    @keyframes orbit {
-      from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
-      to   { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
-    }
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 15px rgba(93,183,53,0.3), 0 0 30px rgba(93,183,53,0.1); }
-      50% { box-shadow: 0 0 25px rgba(93,183,53,0.6), 0 0 50px rgba(93,183,53,0.2); }
-    @keyframes pulse-rainbow {
-      0%   { box-shadow: 0 0 20px rgba(255,59,59,0.4); border-color: #FF3B3B; }
-      16%  { box-shadow: 0 0 20px rgba(249,115,22,0.4); border-color: #F97316; }
-      33%  { box-shadow: 0 0 20px rgba(252,219,5,0.4); border-color: #FCDB05; }
-      50%  { box-shadow: 0 0 20px rgba(93,183,53,0.4); border-color: #5DB735; }
-      66%  { box-shadow: 0 0 20px rgba(6,182,212,0.4); border-color: #06B6D4; }
-      83%  { box-shadow: 0 0 20px rgba(168,85,247,0.4); border-color: #A855F7; }
-      100% { box-shadow: 0 0 20px rgba(255,59,59,0.4); border-color: #FF3B3B; }
-    }
-    @keyframes title-glow {
-      0%, 100% { text-shadow: 0 0 10px rgba(252,219,5,0.5), 0 4px 0 #3B7A1E; }
-      50% { text-shadow: 0 0 20px rgba(252,219,5,0.9), 0 0 40px rgba(252,219,5,0.3), 0 4px 0 #3B7A1E; }
-    @keyframes title-glow-rainbow {
-      0%   { text-shadow: 0 0 20px #FF3B3B, 0 0 40px rgba(255,59,59,0.3), 0 4px 0 #333; }
-      16%  { text-shadow: 0 0 20px #F97316, 0 0 40px rgba(249,115,22,0.3), 0 4px 0 #333; }
-      33%  { text-shadow: 0 0 20px #FCDB05, 0 0 40px rgba(252,219,5,0.3), 0 4px 0 #333; }
-      50%  { text-shadow: 0 0 20px #5DB735, 0 0 40px rgba(93,183,53,0.3), 0 4px 0 #333; }
-      66%  { text-shadow: 0 0 20px #06B6D4, 0 0 40px rgba(6,182,212,0.3), 0 4px 0 #333; }
-      83%  { text-shadow: 0 0 20px #A855F7, 0 0 40px rgba(168,85,247,0.3), 0 4px 0 #333; }
-      100% { text-shadow: 0 0 20px #FF3B3B, 0 0 40px rgba(255,59,59,0.3), 0 4px 0 #333; }
-    }
-    @keyframes xp-bar-fill {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-    @keyframes achievement-slide {
-      0% { transform: translateX(120%); opacity: 0; }
-      15% { transform: translateX(0%); opacity: 1; }
-      85% { transform: translateX(0%); opacity: 1; }
-      10% { transform: translateX(0%); opacity: 1; }
-      90% { transform: translateX(0%); opacity: 1; }
-      100% { transform: translateX(120%); opacity: 0; }
-    }
-    @keyframes block-break {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.7; }
-      100% { transform: scale(0); opacity: 0; }
-    }
-    @keyframes typing-cursor {
-      0%, 100% { border-right-color: var(--mc-xp); }
-      50% { border-right-color: transparent; }
-    }
-    @keyframes fadeInUp {
+
+    .fl1 { animation: float1 6s ease-in-out infinite; }
+    .fl2 { animation: float2 7s ease-in-out infinite 0.5s; }
+    .fl3 { animation: float3 5s ease-in-out infinite 1s; }
+    .fl4 { animation: float4 8s ease-in-out infinite 0.3s; }
+    .fls { animation: floatSlow 9s ease-in-out infinite 1.5s; }
+    .flg { animation: floatGentle 4s ease-in-out infinite 0.7s; }
+    .flw { animation: floatWild 10s ease-in-out infinite; }
+
+    @keyframes fadeUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes torch-flicker {
-      0%, 100% { opacity: 0.8; transform: scaleY(1); }
-      25% { opacity: 1; transform: scaleY(1.1); }
-      50% { opacity: 0.7; transform: scaleY(0.95); }
-      75% { opacity: 0.9; transform: scaleY(1.05); }
-      25% { opacity: 1; transform: scaleY(1.15); }
-      50% { opacity: 0.65; transform: scaleY(0.9); }
-      75% { opacity: 0.95; transform: scaleY(1.08); }
+    .fade-up {
+      animation: fadeUp 0.8s ease-out forwards;
+      opacity: 0;
     }
-    @keyframes glitch {
-      0%   { transform: translate(0); }
-      20%  { transform: translate(-3px, 3px); }
-      40%  { transform: translate(-3px, -3px); }
-      60%  { transform: translate(3px, 3px); }
-      80%  { transform: translate(3px, -3px); }
-      100% { transform: translate(0); }
+
+    @keyframes titleGlow {
+      0%   { text-shadow: 0 0 20px #FF3B3B, 0 4px 0 #333; }
+      16%  { text-shadow: 0 0 20px #F97316, 0 4px 0 #333; }
+      33%  { text-shadow: 0 0 20px #FCDB05, 0 4px 0 #333; }
+      50%  { text-shadow: 0 0 20px #5DB735, 0 4px 0 #333; }
+      66%  { text-shadow: 0 0 20px #06B6D4, 0 4px 0 #333; }
+      83%  { text-shadow: 0 0 20px #A855F7, 0 4px 0 #333; }
+      100% { text-shadow: 0 0 20px #FF3B3B, 0 4px 0 #333; }
     }
-    @keyframes enchant-glint {
-      0%   { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-    @keyframes nether-portal {
-      0%   { background-position: 0 0; }
-      100% { background-position: 0 100px; }
-    }
-    @keyframes gradient-border {
+
+    @keyframes gradBorder {
       0%   { background-position: 0% 50%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    @keyframes enchGlint {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    @keyframes netherFlow {
+      0%   { background-position: 0 0; }
+      100% { background-position: 0 100px; }
+    }
+
+    @keyframes torchFlicker {
+      0%, 100% { opacity: 0.8; transform: scaleY(1); }
+      25% { opacity: 1; transform: scaleY(1.15); }
+      50% { opacity: 0.65; transform: scaleY(0.9); }
+      75% { opacity: 0.95; transform: scaleY(1.08); }
+    }
+
+    @keyframes musicBar {
+      0%, 100% { height: 4px; }
+      50% { height: var(--bh, 20px); }
+    }
+
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       20% { transform: translateX(-6px); }
@@ -298,348 +193,166 @@
       60% { transform: translateX(-4px); }
       80% { transform: translateX(4px); }
     }
-    @keyframes particle-burst {
-      0% { transform: translate(0,0) scale(1); opacity: 1; }
-      100% { opacity: 0; }
+
+    @keyframes achieveSlide {
+      0% { transform: translateX(120%); opacity: 0; }
+      10% { transform: translateX(0); opacity: 1; }
+      90% { transform: translateX(0); opacity: 1; }
+      100% { transform: translateX(120%); opacity: 0; }
     }
-    @keyframes music-bar {
-      0%, 100% { height: 4px; }
-      50% { height: var(--bar-h, 20px); }
-    }
-    @keyframes typewriter {
-      from { width: 0; }
+
+    @keyframes xpFill {
+      from { width: 0%; }
       to { width: 100%; }
     }
-    @keyframes blink-caret {
-      50% { border-color: transparent; }
-    }
-    @keyframes ripple {
-      0% { transform: scale(0); opacity: 0.6; }
-      100% { transform: scale(4); opacity: 0; }
-    }
-    .float-1 { animation: float-1 6s ease-in-out infinite; }
-    .float-2 { animation: float-2 7s ease-in-out infinite 0.5s; }
-    .float-3 { animation: float-3 5s ease-in-out infinite 1s; }
-    .float-4 { animation: float-4 8s ease-in-out infinite 0.3s; }
-    .float-slow { animation: float-slow 9s ease-in-out infinite 1.5s; }
-    .float-gentle { animation: float-gentle 4s ease-in-out infinite 0.7s; }
-    .float-wild { animation: float-wild 10s ease-in-out infinite; }
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-      opacity: 0;
-    }
-    /* ============================================ */
-    /*  MINECRAFT BLOCK DECORATIONS (CSS Art)       */
-    /*  NETHER PORTAL                               */
-    /* ============================================ */
-    .nether-portal {
-      width: 60px;
-      height: 90px;
-      border: 6px solid #2D0060;
-      background: linear-gradient(
-        180deg,
-        #9B30FF 0%, #6B1FCC 15%, #B94FFF 30%,
-        #7722DD 45%, #AA40FF 60%, #6B1FCC 75%,
-        #9B30FF 90%, #B94FFF 100%
-      );
-      background-size: 100% 100px;
-      animation: nether-portal 1.5s linear infinite;
-      box-shadow:
-        0 0 30px rgba(155,48,255,0.5),
-        0 0 60px rgba(155,48,255,0.2),
-        inset 0 0 20px rgba(155,48,255,0.3);
-      position: relative;
-    }
-    .nether-portal::before {
-      content: '';
-      position: absolute;
-      top: -6px; left: -6px;
-      right: -6px; bottom: -6px;
-      border: 3px solid #4A0080;
-      box-shadow: 0 0 15px rgba(155,48,255,0.3);
-    }
-    /* ============================================ */
-    /*  MINECRAFT BLOCKS                            */
-    /* ============================================ */
-    .mc-block {
-      width: 64px;
-      height: 64px;
+
+    /* ---- Blocks ---- */
+    .blk {
       border: 4px solid rgba(0,0,0,0.5);
-      image-rendering: pixelated;
       position: relative;
     }
-    .mc-block::after {
+    .blk::after {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      width: 100%; height: 100%;
+      inset: 0;
       background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
     }
-    .block-grass {
-      background: linear-gradient(to bottom, #5DB735 0%, #5DB735 30%, #866043 30%, #866043 100%);
+    .blk.enchanted::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(99,102,241,0.35) 40%, rgba(139,92,246,0.25) 50%, transparent 60%);
+      background-size: 200% 100%;
+      animation: enchGlint 3s linear infinite;
+      z-index: 1;
+    }
+    .bk-grass {
       background: linear-gradient(to bottom, #5DB735 0%, #5DB735 30%, #866043 30%);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3);
     }
-    .block-diamond {
-      background: linear-gradient(135deg, #2CCDB1 0%, #1A8A76 50%, #2CCDB1 100%);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(44,205,177,0.4);
+    .bk-diamond {
+      background: linear-gradient(135deg, #2CCDB1, #1A8A76 50%, #2CCDB1);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 25px rgba(44,205,177,0.5);
     }
-    .block-gold {
-      background: linear-gradient(135deg, #FCDB05 0%, #C4A800 50%, #FCDB05 100%);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(252,219,5,0.3);
+    .bk-gold {
+      background: linear-gradient(135deg, #FCDB05, #C4A800 50%, #FCDB05);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 25px rgba(252,219,5,0.4);
     }
-    .block-redstone {
-      background: linear-gradient(135deg, #FF3B3B 0%, #AA1111 50%, #FF3B3B 100%);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 15px rgba(255,59,59,0.4);
+    .bk-red {
+      background: linear-gradient(135deg, #FF3B3B, #AA1111 50%, #FF3B3B);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(255,59,59,0.5);
     }
-    .block-lapis {
-      background: linear-gradient(135deg, #345EC3 0%, #1A3570 50%, #345EC3 100%);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 15px rgba(52,94,195,0.4);
-    }
-    .block-obsidian {
-      background: linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 10px rgba(80,40,120,0.3);
-    .block-emerald {
-      background: linear-gradient(135deg, #10B981 0%, #047857 50%, #10B981 100%);
+    .bk-emerald {
+      background: linear-gradient(135deg, #10B981, #047857 50%, #10B981);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(16,185,129,0.5);
     }
-    .block-amethyst {
-      background: linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #A855F7 100%);
+    .bk-amethyst {
+      background: linear-gradient(135deg, #A855F7, #7C3AED 50%, #A855F7);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 20px rgba(168,85,247,0.5);
     }
-    .block-copper {
-      background: linear-gradient(135deg, #F97316 0%, #C2410C 50%, #F97316 100%);
+    .bk-copper {
+      background: linear-gradient(135deg, #F97316, #C2410C 50%, #F97316);
       box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 15px rgba(249,115,22,0.4);
     }
-    /* Enchantment glint overlay */
-    .enchanted::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent 30%,
-        rgba(99,102,241,0.35) 40%,
-        rgba(139,92,246,0.25) 50%,
-        transparent 60%
-      );
-      background-size: 200% 100%;
-      animation: enchant-glint 3s linear infinite;
-      z-index: 1;
+    .bk-lapis {
+      background: linear-gradient(135deg, #345EC3, #1A3570 50%, #345EC3);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2), 4px 4px 0 rgba(0,0,0,0.3), 0 0 15px rgba(52,94,195,0.4);
     }
-    /* ============================================ */
-    /*  CREEPER FACE (Pure CSS)                     */
-    /*  CREEPER FACE                                */
-    /* ============================================ */
-    .creeper-face {
-      width: 80px;
-      height: 80px;
-      background: #5DB735;
+
+    /* ---- Creeper Face ---- */
+    .creeper {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       grid-template-rows: repeat(8, 1fr);
       border: 4px solid #3B7A1E;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.4), 0 0 30px rgba(93,183,53,0.2);
-      image-rendering: pixelated;
       box-shadow: 4px 4px 0 rgba(0,0,0,0.4), 0 0 30px rgba(93,183,53,0.3);
     }
-    .creeper-face .dark {
-      background: #2D5A16;
-    }
-    .creeper-face .light {
-      background: #5DB735;
-    }
-    .creeper-face .mid {
-      background: #4A9928;
-    }
-    .creeper-face .dark { background: #2D5A16; }
-    .creeper-face .light { background: #5DB735; }
-    .creeper-face .mid { background: #4A9928; }
-    /* ============================================ */
-    /*  TORCH DECORATION (Pure CSS)                 */
-    /*  TORCH                                       */
-    /* ============================================ */
-    .torch {
-      position: relative;
-      width: 16px;
-      height: 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 16px; height: 48px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .torch-flame {
-      width: 10px;
-      height: 14px;
-      background: radial-gradient(ellipse, #FCDB05 30%, #FF8C00 70%, transparent 100%);
+    .creeper .d { background: #2D5A16; }
+    .creeper .l { background: #5DB735; }
+    .creeper .m { background: #4A9928; }
+
+    /* ---- Torch ---- */
+    .torch { width: 16px; height: 48px; display: flex; flex-direction: column; align-items: center; }
+    .torch-fire {
       width: 12px; height: 16px;
       background: radial-gradient(ellipse, #FCDB05 20%, #FF8C00 60%, #FF4444 90%, transparent 100%);
       border-radius: 50% 50% 30% 30%;
-      animation: torch-flicker 0.5s ease-in-out infinite;
-      box-shadow: 0 0 12px #FCDB05, 0 0 24px rgba(252,219,5,0.3);
-      animation: torch-flicker 0.4s ease-in-out infinite;
-      box-shadow: 0 0 16px #FCDB05, 0 0 32px rgba(252,219,5,0.4), 0 -4px 12px rgba(255,140,0,0.3);
+      animation: torchFlicker 0.4s ease-in-out infinite;
+      box-shadow: 0 0 16px #FCDB05, 0 0 32px rgba(252,219,5,0.4);
     }
-    .torch-stick {
-      width: 6px;
-      height: 32px;
+    .torch-body {
       width: 6px; height: 32px;
-      background: linear-gradient(to right, #8B6914 0%, #C4A34A 50%, #8B6914 100%);
+      background: linear-gradient(to right, #8B6914, #C4A34A 50%, #8B6914);
       border: 1px solid rgba(0,0,0,0.3);
     }
-    /* ============================================ */
-    /*  GLASSMORPHISM FORM CONTAINER                */
-    /*  MUSIC VISUALIZER BARS                       */
-    /* ============================================ */
-    .music-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      height: 28px;
+
+    /* ---- Nether Portal ---- */
+    .portal {
+      width: 60px; height: 90px;
+      border: 6px solid #2D0060;
+      background: linear-gradient(180deg, #9B30FF, #6B1FCC 15%, #B94FFF 30%, #7722DD 45%, #AA40FF 60%, #6B1FCC 75%, #9B30FF 90%, #B94FFF);
+      background-size: 100% 100px;
+      animation: netherFlow 1.5s linear infinite;
+      box-shadow: 0 0 30px rgba(155,48,255,0.5), 0 0 60px rgba(155,48,255,0.2), inset 0 0 20px rgba(155,48,255,0.3);
     }
-    .music-bar {
+
+    /* ---- Music Bars ---- */
+    .mbars { display: flex; align-items: flex-end; gap: 3px; height: 28px; }
+    .mbar {
       width: 4px;
-      background: linear-gradient(to top, var(--mc-green), var(--mc-xp));
-      animation: music-bar 0.8s ease-in-out infinite alternate;
+      animation: musicBar 0.8s ease-in-out infinite alternate;
     }
-    /* ============================================ */
-    /*  RAINBOW GRADIENT BORDER                     */
-    /* ============================================ */
-    .rainbow-border {
-      position: relative;
-      z-index: 1;
-    }
-    .rainbow-border::before {
-      content: '';
-      position: absolute;
-      top: -3px; left: -3px; right: -3px; bottom: -3px;
-      background: linear-gradient(
-        90deg,
-        #FF3B3B, #F97316, #FCDB05, #5DB735, #06B6D4, #A855F7, #EC4899, #FF3B3B
-      );
-      background-size: 400% 100%;
-      animation: gradient-border 6s linear infinite;
-      z-index: -1;
-    }
-    /* ============================================ */
-    /*  GLASSMORPHISM FORM                          */
-    /* ============================================ */
-    .mc-glass {
-      background: rgba(20, 20, 20, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 4px solid rgba(93, 183, 53, 0.4);
+
+    /* ---- Glass Form ---- */
+    .glass {
       background: rgba(10, 10, 30, 0.8);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 3px solid rgba(93, 183, 53, 0.3);
-      box-shadow:
-        inset 0 0 30px rgba(93, 183, 53, 0.05),
-        0 0 40px rgba(93, 183, 53, 0.1),
-        8px 8px 0 rgba(0, 0, 0, 0.4);
-        inset 0 0 40px rgba(93, 183, 53, 0.03),
-        0 0 50px rgba(93, 183, 53, 0.08),
-        8px 8px 0 rgba(0, 0, 0, 0.5);
+      border: 3px solid rgba(93,183,53,0.3);
+      box-shadow: inset 0 0 40px rgba(93,183,53,0.03), 0 0 50px rgba(93,183,53,0.08), 8px 8px 0 rgba(0,0,0,0.5);
       position: relative;
       overflow: hidden;
     }
-    .mc-glass::before {
+    .glass::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, #FF3B3B, #F97316, #FCDB05, #5DB735, #06B6D4, #A855F7, #EC4899);
       background-size: 400% 100%;
-      animation: gradient-border 4s linear infinite;
+      animation: gradBorder 4s linear infinite;
     }
-    /* ============================================ */
-    /*  FORM ELEMENTS                               */
-    /* ============================================ */
-    .mc-input {
-      background: rgba(0, 0, 0, 0.6);
-      border: 3px solid #5A5A5A;
-    .mc-input, .mc-select, .mc-textarea {
-      background: rgba(0, 0, 0, 0.5);
+
+    /* ---- Form Controls ---- */
+    .fi {
+      background: rgba(0,0,0,0.5);
       border: 3px solid #333;
       color: #E0E0E0;
       font-family: 'Outfit', sans-serif;
       font-size: 1rem;
       padding: 12px 16px;
       width: 100%;
-      transition: all 0.2s ease;
       transition: all 0.25s ease;
       outline: none;
     }
-    .mc-input:focus {
-      border-color: var(--mc-green);
-      box-shadow: 0 0 0 2px rgba(93, 183, 53, 0.3), inset 0 0 10px rgba(93, 183, 53, 0.1);
-    .mc-input:focus, .mc-select:focus, .mc-textarea:focus {
-      border-color: var(--mc-diamond);
+    .fi:focus {
+      border-color: var(--diamond);
       box-shadow: 0 0 0 3px rgba(44,205,177,0.2), inset 0 0 15px rgba(44,205,177,0.05);
     }
-    .mc-input:hover:not(:focus) {
-      border-color: #7F7F7F;
-    .mc-input:hover:not(:focus), .mc-select:hover:not(:focus), .mc-textarea:hover:not(:focus) {
-      border-color: #555;
-    }
-    .mc-input::placeholder {
-      color: #666;
-    .mc-input::placeholder, .mc-textarea::placeholder {
-      color: #555;
-      font-style: italic;
-    }
-    .mc-select {
-      background: rgba(0, 0, 0, 0.6);
-      border: 3px solid #5A5A5A;
-      color: #E0E0E0;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      padding: 12px 16px;
-      width: 100%;
-      transition: all 0.2s ease;
-      outline: none;
+    .fi:hover:not(:focus) { border-color: #555; }
+    .fi::placeholder { color: #555; font-style: italic; }
+
+    select.fi {
       appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235DB735' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2380FF20' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2380FF20' stroke-width='2' fill='none'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 16px center;
       cursor: pointer;
     }
-    .mc-select:focus {
-      border-color: var(--mc-green);
-      box-shadow: 0 0 0 2px rgba(93, 183, 53, 0.3), inset 0 0 10px rgba(93, 183, 53, 0.1);
-    }
-    .mc-textarea {
-      background: rgba(0, 0, 0, 0.6);
-      border: 3px solid #5A5A5A;
-      color: #E0E0E0;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      padding: 12px 16px;
-      width: 100%;
-      min-height: 120px;
-      min-height: 110px;
-      resize: vertical;
-      transition: all 0.2s ease;
-      outline: none;
-    }
-    .mc-textarea:focus {
-      border-color: var(--mc-green);
-      box-shadow: 0 0 0 2px rgba(93, 183, 53, 0.3), inset 0 0 10px rgba(93, 183, 53, 0.1);
-    }
-    .mc-label {
+    textarea.fi { min-height: 110px; resize: vertical; }
+
+    .lbl {
       font-family: 'Press Start 2P', monospace;
-      font-size: 0.65rem;
-      color: var(--mc-gold);
       font-size: 0.6rem;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -648,73 +361,137 @@
       align-items: center;
       gap: 8px;
     }
-    .mc-label .label-icon {
-    .label-icon {
+    .lbl-dot {
       display: inline-block;
-      width: 12px;
-      height: 12px;
-      border: 2px solid currentColor;
       width: 10px; height: 10px;
       border: 2px solid rgba(0,0,0,0.3);
     }
-    .field-group {
+    .fg {
       margin-bottom: 1.25rem;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease;
     }
-    .field-group:hover {
-      transform: translateX(4px);
-    }
-    /* ============================================ */
-    /*  STEP INDICATOR                               */
-    /* ============================================ */
-    .step-indicator {
+    .fg:hover { transform: translateX(4px); }
+
+    /* ---- Kesiapan Selector ---- */
+    .ready-options {
       display: flex;
+      gap: 12px;
+    }
+    .ready-option {
+      flex: 1;
+      cursor: pointer;
+    }
+    .ready-option input { display: none; }
+    .ready-card {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0;
-      margin-bottom: 2rem;
+      padding: 20px 12px;
+      background: rgba(0,0,0,0.5);
+      border: 4px solid #333;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .step-dot {
-      width: 32px; height: 32px;
+    .ready-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .ready-card:hover {
+      border-color: #555;
+      transform: translateY(-2px);
+    }
+    .ready-option input:checked + .ready-card.card-50 {
+      border-color: var(--orange);
+      box-shadow: 0 0 20px rgba(249,115,22,0.3), inset 0 0 20px rgba(249,115,22,0.05);
+      background: rgba(249,115,22,0.08);
+    }
+    .ready-option input:checked + .ready-card.card-100 {
+      border-color: var(--green-neon);
+      box-shadow: 0 0 20px rgba(128,255,32,0.3), inset 0 0 20px rgba(128,255,32,0.05);
+      background: rgba(128,255,32,0.08);
+    }
+    .ready-number {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .ready-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: #999;
+    }
+    .ready-bar {
+      width: 100%;
+      height: 6px;
+      background: #222;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+    .ready-bar-fill {
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+
+    /* ---- Step Dots ---- */
+    .sdot {
+      width: 30px; height: 30px;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Press Start 2P', monospace;
-      font-size: 0.5rem;
+      font-size: 0.45rem;
       border: 3px solid #333;
       background: rgba(0,0,0,0.5);
       color: #555;
       transition: all 0.4s ease;
-      position: relative;
       z-index: 2;
     }
-    .step-dot.active {
-      border-color: var(--mc-xp);
-      color: var(--mc-xp);
+    .sdot.on {
+      border-color: var(--green-neon);
+      color: var(--green-neon);
       background: rgba(128,255,32,0.1);
       box-shadow: 0 0 12px rgba(128,255,32,0.3);
     }
-    .step-dot.done {
-      border-color: var(--mc-diamond);
-      color: var(--mc-diamond);
+    .sdot.ok {
+      border-color: var(--diamond);
+      color: var(--diamond);
       background: rgba(44,205,177,0.15);
     }
-    .step-line {
-      width: 40px; height: 3px;
+    .sline {
+      width: 28px; height: 3px;
       background: #333;
       transition: background 0.4s;
     }
-    .step-line.done {
-      background: linear-gradient(90deg, var(--mc-diamond), var(--mc-xp));
+    .sline.ok {
+      background: linear-gradient(90deg, var(--diamond), var(--green-neon));
     }
-    /* ============================================ */
-    /*  MINECRAFT BUTTON                            */
-    /* ============================================ */
-    .mc-btn {
+
+    /* ---- XP Bar ---- */
+    .xpbar {
+      width: 100%; height: 14px;
+      background: #111;
+      border: 2px solid #333;
+      overflow: hidden;
+    }
+    .xpfill {
+      height: 100%;
+      background: linear-gradient(90deg, #80FF20, #5DB735, #2CCDB1);
+      background-size: 200% 100%;
+      animation: gradBorder 3s linear infinite;
+      box-shadow: 0 0 10px rgba(128,255,32,0.5);
+      transition: width 0.5s ease;
+    }
+
+    /* ---- MC Button ---- */
+    .mcbtn {
       font-family: 'Press Start 2P', monospace;
-      font-size: 0.85rem;
       font-size: 0.8rem;
       padding: 16px 32px;
-      background: linear-gradient(to bottom, #5DB735 0%, #4A9928 40%, #3B7A1E 100%);
-      color: #FFFFFF;
+      background: linear-gradient(to bottom, #5DB735, #4A9928 40%, #3B7A1E);
       color: #FFF;
       border: 4px solid;
       border-color: #80FF20 #2D5A16 #2D5A16 #80FF20;
@@ -724,252 +501,151 @@
       position: relative;
       transition: all 0.1s ease;
       text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-      box-shadow: 0 6px 0 #2D5A16, 0 8px 10px rgba(0,0,0,0.4);
       box-shadow: 0 6px 0 #2D5A16, 0 8px 12px rgba(0,0,0,0.5);
       overflow: hidden;
     }
-    .mc-btn::after {
+    .mcbtn::after {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
-      width: 200%; height: 100%;
+      inset: 0;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-      animation: enchant-glint 4s linear infinite;
+      background-size: 200% 100%;
+      animation: enchGlint 4s linear infinite;
     }
-    .mc-btn:hover:not(:disabled) {
-      background: linear-gradient(to bottom, #6ECF40 0%, #5DB735 40%, #4A9928 100%);
-      box-shadow: 0 6px 0 #2D5A16, 0 8px 15px rgba(93,183,53,0.3);
+    .mcbtn:hover:not(:disabled) {
+      background: linear-gradient(to bottom, #6ECF40, #5DB735 40%, #4A9928);
       box-shadow: 0 6px 0 #2D5A16, 0 8px 20px rgba(93,183,53,0.4);
     }
-    .mc-btn:active:not(:disabled) {
+    .mcbtn:active:not(:disabled) {
       transform: translateY(4px);
-      box-shadow: 0 2px 0 #2D5A16, 0 3px 5px rgba(0,0,0,0.4);
+      box-shadow: 0 2px 0 #2D5A16;
       border-color: #2D5A16 #80FF20 #80FF20 #2D5A16;
     }
-    .mc-btn:disabled {
-      background: linear-gradient(to bottom, #5A5A5A 0%, #4A4A4A 40%, #3A3A3A 100%);
+    .mcbtn:disabled {
+      background: linear-gradient(to bottom, #5A5A5A, #4A4A4A 40%, #3A3A3A);
       border-color: #7F7F7F #333 #333 #7F7F7F;
       color: #999;
       cursor: not-allowed;
-      box-shadow: 0 4px 0 #333, 0 5px 8px rgba(0,0,0,0.3);
       box-shadow: 0 4px 0 #333;
     }
-    /* ============================================ */
-    /*  ACHIEVEMENT NOTIFICATION                    */
-    /*  HOTBAR                                      */
-    /* ============================================ */
-    .hotbar {
-      display: flex;
-      gap: 2px;
-      padding: 4px;
+
+    /* ---- Hotbar ---- */
+    .hbar {
+      display: flex; gap: 2px; padding: 4px;
       background: #1A1A1A;
       border: 3px solid;
       border-color: #555 #222 #222 #555;
     }
-    .hotbar-slot {
-      width: 44px; height: 44px;
+    .hslot {
+      width: 42px; height: 42px;
       background: #444;
       border: 2px solid;
       border-color: #333 #666 #666 #333;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
+      font-size: 17px;
       transition: all 0.2s;
-      cursor: default;
       position: relative;
     }
-    .hotbar-slot:hover {
-      background: #555;
-      box-shadow: inset 0 0 10px rgba(252,219,5,0.3);
+    .hslot:hover { background: #555; box-shadow: inset 0 0 10px rgba(252,219,5,0.3); }
+    .hslot.on { border-color: #FFF #999 #999 #FFF; background: #3A3A3A; }
+
+    /* ---- Tooltip ---- */
+    .tip { position: relative; }
+    .tip::after {
+      content: attr(data-t);
+      position: absolute;
+      bottom: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: #1A0A2E;
+      border: 2px solid #5A28A0;
+      color: #E0E0E0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      z-index: 10;
     }
-    .hotbar-slot.active {
-      border-color: #FFF #999 #999 #FFF;
-      background: #3A3A3A;
-    }
-    /* ============================================ */
-    /*  ACHIEVEMENT                                 */
-    /* ============================================ */
-    .achievement-toast {
+    .tip:hover::after { opacity: 1; }
+
+    /* ---- Achievement ---- */
+    .ach {
       position: fixed;
-      top: 24px;
-      right: 24px;
       top: 24px; right: 24px;
       z-index: 9999;
-      background: linear-gradient(to bottom, #3B3B3B 0%, #2A2A2A 100%);
       background: linear-gradient(to bottom, #3B3B3B, #2A2A2A);
       border: 4px solid;
       border-color: #7F7F7F #333 #333 #7F7F7F;
       padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      animation: achievement-slide 4s ease-in-out forwards;
-      box-shadow: 0 0 30px rgba(252,219,5,0.3);
-      max-width: 380px;
       display: flex; align-items: center; gap: 16px;
-      animation: achievement-slide 5s ease-in-out forwards;
+      animation: achieveSlide 5s ease-in-out forwards;
       box-shadow: 0 0 40px rgba(252,219,5,0.4);
       max-width: 400px;
     }
-    .achievement-icon {
-      width: 48px;
-      height: 48px;
+    .ach-icon {
       width: 48px; height: 48px;
       flex-shrink: 0;
-      background: linear-gradient(135deg, #FCDB05 0%, #C4A800 100%);
       border: 3px solid rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       display: flex; align-items: center; justify-content: center;
       font-size: 24px;
     }
-    .achievement-text h4 {
+    .ach-txt h4 {
       font-family: 'Press Start 2P', monospace;
-      font-size: 0.6rem;
-      color: #FCDB05;
       font-size: 0.55rem;
-      color: var(--mc-gold);
+      color: var(--gold);
       margin-bottom: 6px;
     }
-    .achievement-text p {
-    /* ============================================ */
-    .xp-bar-container {
-      width: 100%;
-      height: 12px;
-      background: #1A1A1A;
-      height: 14px;
-      background: #111;
-      border: 2px solid #333;
-      overflow: hidden;
-      position: relative;
+    .ach-txt p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: #CCC;
+      line-height: 1.4;
     }
-    .xp-bar-fill {
-      height: 100%;
-      background: linear-gradient(to right, #80FF20 0%, #5DB735 100%);
-      width: 0%;
-      box-shadow: 0 0 8px rgba(128,255,32,0.4);
-      background: linear-gradient(90deg, #80FF20, #5DB735, #2CCDB1);
-      background-size: 200% 100%;
-      animation: gradient-border 3s linear infinite;
-      box-shadow: 0 0 10px rgba(128,255,32,0.5);
-      transition: width 0.5s ease;
-    }
-    .xp-bar-fill.animate {
-      animation: xp-bar-fill 2s ease-out forwards;
-    }
-    /* ============================================ */
-    /*  HOTBAR / INVENTORY STYLE INDICATORS         */
-    /*  CRAFTING GRID                                */
-    /* ============================================ */
-    .hotbar {
-      display: flex;
-    .crafting-grid {
+
+    /* ---- Crafting Grid ---- */
+    .cgrid {
       display: grid;
       grid-template-columns: repeat(3, 36px);
       grid-template-rows: repeat(3, 36px);
-      gap: 2px;
-      padding: 4px;
-      background: #1A1A1A;
+      gap: 2px; padding: 4px;
       background: #2A2A2A;
       border: 3px solid;
       border-color: #555 #222 #222 #555;
     }
-    .hotbar-slot {
-      width: 48px;
-      height: 48px;
-      background: #555;
-      border: 2px solid;
-      border-color: #333 #777 #777 #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      transition: all 0.2s;
-      cursor: default;
-    .crafting-cell {
+    .ccell {
       background: #444;
       border: 1px solid;
       border-color: #333 #666 #666 #333;
       transition: all 0.3s ease;
     }
-    .hotbar-slot:hover {
-      background: #666;
-      box-shadow: inset 0 0 10px rgba(252,219,5,0.2);
-    .crafting-cell.filled {
-      box-shadow: inset 0 0 8px rgba(128,255,32,0.5);
-    }
-    .hotbar-slot.active {
-      border-color: #FFF #999 #999 #FFF;
-      background: #4A4A4A;
-    }
-    /* ============================================ */
-    /*  COUNTDOWN / REDIRECT NOTICE                 */
-    /*  STAT CARDS                                  */
-    /* ============================================ */
-    .redirect-notice {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,0.9);
-      border-top: 4px solid var(--mc-green);
-      padding: 16px;
-      text-align: center;
-      z-index: 9998;
-      transform: translateY(100%);
-      transition: transform 0.4s ease;
-    }
-    .redirect-notice.show {
-      transform: translateY(0);
-    }
-    /* ============================================ */
-    /*  STATS COUNTER                                */
-    /* ============================================ */
-    .stat-card {
+
+    /* ---- Stat Card ---- */
+    .scard {
       background: rgba(0,0,0,0.5);
       border: 3px solid;
-      border-color: #555 #222 #222 #555;
       border-color: #444 #222 #222 #444;
-      padding: 16px;
-      text-align: center;
-      transition: all 0.3s ease;
+      padding: 16px; text-align: center;
+      transition: all 0.3s;
     }
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .stat-number {
+    .scard:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .snum {
       font-family: 'Press Start 2P', monospace;
-      font-size: 1.8rem;
-      color: var(--mc-xp);
       font-size: 1.5rem;
       display: block;
     }
-    .stat-label {
+    .slbl {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.8rem;
-      color: #999;
       font-size: 0.75rem;
       color: #888;
       margin-top: 4px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    /* ============================================ */
-    /*  RESPONSIVE                                  */
-    /*  REDIRECT NOTICE                              */
-    /* ============================================ */
-    @media (max-width: 640px) {
-      .mc-label { font-size: 0.55rem; }
-      .mc-btn { font-size: 0.7rem; padding: 14px 24px; }
-      .creeper-face { width: 56px; height: 56px; }
-      .mc-block { width: 40px; height: 40px; }
-      .achievement-toast { max-width: 300px; right: 12px; top: 12px; padding: 12px; }
-      .achievement-icon { width: 36px; height: 36px; font-size: 18px; }
-      .achievement-text h4 { font-size: 0.5rem; }
-      .achievement-text p { font-size: 0.75rem; }
-      .hotbar-slot { width: 36px; height: 36px; font-size: 16px; }
-    .redirect-notice {
+
+    /* ---- Redirect ---- */
+    .redir {
       position: fixed;
       bottom: 0; left: 0; right: 0;
       background: rgba(5,5,16,0.95);
@@ -982,1261 +658,656 @@
       transition: transform 0.4s ease;
       backdrop-filter: blur(10px);
     }
-    .redirect-notice.show { transform: translateY(0); }
-    /* ============================================ */
-    /*  BEDROCK                                     */
-    /* ============================================ */
-    .bedrock-strip {
+    .redir.show { transform: translateY(0); }
+
+    .bedrock {
       height: 8px;
-      background: repeating-linear-gradient(90deg,
-        #141414 0px, #141414 8px, #1E1E1E 8px, #1E1E1E 16px,
-        #0A0A0A 16px, #0A0A0A 24px, #1A1A1A 24px, #1A1A1A 32px
-      );
+      background: repeating-linear-gradient(90deg, #141414 0px, #141414 8px, #1E1E1E 8px, #1E1E1E 16px, #0A0A0A 16px, #0A0A0A 24px, #1A1A1A 24px, #1A1A1A 32px);
     }
-    /* ============================================ */
-    /*  TOOLTIP                                     */
-    /* ============================================ */
-    .mc-tooltip {
-      position: relative;
-    }
-    .mc-tooltip { position: relative; }
-    .mc-tooltip::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: calc(100% + 8px);
-      left: 50%;
-      bottom: calc(100% + 8px); left: 50%;
-      transform: translateX(-50%);
-      background: #1A0A2E;
-      border: 2px solid #5A28A0;
-      color: #E0E0E0;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem;
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-      z-index: 10;
-    }
-    .mc-tooltip:hover::after {
-      opacity: 1;
-    }
-    .mc-tooltip:hover::after { opacity: 1; }
-    /* ============================================ */
-    /*  FOOTER BEDROCK                               */
-    /* ============================================ */
-    .bedrock-strip {
-      height: 8px;
-      background: repeating-linear-gradient(
-        90deg,
-        #141414 0px, #141414 8px,
-        #1E1E1E 8px, #1E1E1E 16px,
-        #0A0A0A 16px, #0A0A0A 24px,
-        #1A1A1A 24px, #1A1A1A 32px
-      );
-      image-rendering: pixelated;
-    }
-    .shake { animation: shake 0.4s ease-in-out; border-color: var(--mc-redstone) !important; }
-    /* ============================================ */
-    /*  FIELD VALIDATION SHAKE                       */
-    /*  RESPONSIVE                                  */
-    /* ============================================ */
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-6px); }
-      40% { transform: translateX(6px); }
-      60% { transform: translateX(-4px); }
-      80% { transform: translateX(4px); }
+
+    .shake { animation: shake 0.4s ease-in-out; border-color: var(--redstone) !important; }
+
     @media (max-width: 640px) {
-      .mc-label { font-size: 0.5rem; }
-      .mc-btn { font-size: 0.65rem; padding: 14px 20px; }
-      .hotbar-slot { width: 34px; height: 34px; font-size: 14px; }
-      .achievement-toast { max-width: 300px; right: 10px; top: 10px; padding: 12px; }
-      .achievement-icon { width: 36px; height: 36px; font-size: 18px; }
-      .achievement-text h4 { font-size: 0.45rem; }
-      .achievement-text p { font-size: 0.75rem; }
-      .nether-portal { width: 40px; height: 60px; border-width: 4px; }
-      .step-dot { width: 26px; height: 26px; font-size: 0.4rem; }
-      .step-line { width: 24px; }
-      .stat-number { font-size: 1.2rem; }
-    }
-    .shake {
-      animation: shake 0.4s ease-in-out;
-      border-color: #FF3B3B !important;
-    }
-    /* ============================================ */
-    /*  CRAFTING PROGRESS                            */
-    /* ============================================ */
-    .crafting-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 32px);
-      grid-template-rows: repeat(3, 32px);
-      gap: 2px;
-      padding: 4px;
-      background: #2A2A2A;
-      border: 3px solid;
-      border-color: #555 #222 #222 #555;
-    }
-    .crafting-cell {
-      background: #555;
-      border: 1px solid;
-      border-color: #333 #777 #777 #333;
-      transition: background 0.3s;
-    }
-    .crafting-cell.filled {
-      background: var(--mc-green);
-      box-shadow: inset 0 0 6px rgba(128,255,32,0.4);
+      .lbl { font-size: 0.5rem; }
+      .mcbtn { font-size: 0.65rem; padding: 14px 20px; }
+      .hslot { width: 32px; height: 32px; font-size: 13px; }
+      .ach { max-width: 290px; right: 10px; top: 10px; padding: 12px; }
+      .ach-icon { width: 36px; height: 36px; font-size: 18px; }
+      .ach-txt h4 { font-size: 0.45rem; }
+      .ach-txt p { font-size: 0.75rem; }
+      .portal { width: 40px; height: 60px; border-width: 4px; }
+      .sdot { width: 24px; height: 24px; font-size: 0.35rem; }
+      .sline { width: 16px; }
+      .snum { font-size: 1.1rem; }
+      .ready-number { font-size: 1.3rem; }
+      .ready-card { padding: 14px 8px; }
     }
   </style>
 </head>
 <body class="min-h-screen relative">
-  <!-- ==================== PARTICLE CANVAS ==================== -->
-  <canvas id="particle-canvas"></canvas>
-  <!-- PARTICLE CANVAS -->
-  <canvas id="particle-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <!-- MAIN CONTENT -->
+
+  <canvas id="pcanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
   <main class="relative z-10">
-    <!-- ========== HERO SECTION ========== -->
-    <section id="hero" class="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden">
-      <!-- Floating Minecraft Blocks (Decorations) -->
-      <div class="absolute top-[8%] left-[5%] float-1 hidden md:block">
-        <div class="mc-block block-grass" style="width:48px;height:48px;"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden">
+
       <!-- Floating Blocks -->
-      <div class="absolute top-[6%] left-[4%] float-1 hidden md:block">
-        <div class="mc-block block-grass enchanted" style="width:52px;height:52px;"></div>
-      </div>
-      <div class="absolute top-[15%] right-[8%] float-2 hidden md:block">
-        <div class="mc-block block-diamond" style="width:40px;height:40px;"></div>
-      <div class="absolute top-[12%] right-[7%] float-2 hidden md:block">
-        <div class="mc-block block-diamond enchanted" style="width:44px;height:44px;"></div>
-      </div>
-      <div class="absolute bottom-[20%] left-[10%] float-3 hidden md:block">
-        <div class="mc-block block-gold" style="width:52px;height:52px;"></div>
-      <div class="absolute bottom-[18%] left-[8%] float-3 hidden md:block">
-        <div class="mc-block block-gold enchanted" style="width:56px;height:56px;"></div>
-      </div>
-      <div class="absolute bottom-[15%] right-[12%] float-slow hidden md:block">
-        <div class="mc-block block-redstone" style="width:36px;height:36px;"></div>
-      <div class="absolute bottom-[12%] right-[10%] float-slow hidden md:block">
-        <div class="mc-block block-redstone enchanted" style="width:38px;height:38px;"></div>
-      </div>
-      <div class="absolute top-[40%] left-[3%] float-4 hidden lg:block">
-        <div class="mc-block block-lapis" style="width:32px;height:32px;"></div>
-      <div class="absolute top-[45%] left-[2%] float-4 hidden lg:block">
-        <div class="mc-block block-emerald enchanted" style="width:36px;height:36px;"></div>
-      </div>
-      <div class="absolute top-[60%] right-[4%] float-gentle hidden lg:block">
-        <div class="mc-block block-obsidian" style="width:44px;height:44px;"></div>
-      <div class="absolute top-[55%] right-[3%] float-wild hidden lg:block">
-        <div class="mc-block block-amethyst enchanted" style="width:42px;height:42px;"></div>
-      </div>
-      <div class="absolute top-[75%] left-[15%] float-gentle hidden lg:block">
-        <div class="mc-block block-copper enchanted" style="width:34px;height:34px;"></div>
-      </div>
-      <div class="absolute top-[20%] left-[45%] float-wild hidden lg:block">
-        <div class="mc-block block-lapis enchanted" style="width:30px;height:30px;"></div>
-      </div>
-      <!-- Floating Torches -->
-      <div class="absolute top-[25%] left-[18%] float-2 hidden md:block">
+      <div class="absolute top-[6%] left-[4%] fl1 hidden md:block"><div class="blk bk-grass enchanted" style="width:52px;height:52px;"></div></div>
+      <div class="absolute top-[12%] right-[7%] fl2 hidden md:block"><div class="blk bk-diamond enchanted" style="width:44px;height:44px;"></div></div>
+      <div class="absolute bottom-[18%] left-[8%] fl3 hidden md:block"><div class="blk bk-gold enchanted" style="width:56px;height:56px;"></div></div>
+      <div class="absolute bottom-[12%] right-[10%] fls hidden md:block"><div class="blk bk-red enchanted" style="width:38px;height:38px;"></div></div>
+      <div class="absolute top-[45%] left-[2%] fl4 hidden lg:block"><div class="blk bk-emerald enchanted" style="width:36px;height:36px;"></div></div>
+      <div class="absolute top-[55%] right-[3%] flw hidden lg:block"><div class="blk bk-amethyst enchanted" style="width:42px;height:42px;"></div></div>
+      <div class="absolute top-[75%] left-[15%] flg hidden lg:block"><div class="blk bk-copper enchanted" style="width:34px;height:34px;"></div></div>
+      <div class="absolute top-[20%] left-[45%] flw hidden lg:block"><div class="blk bk-lapis enchanted" style="width:30px;height:30px;"></div></div>
+
       <!-- Torches -->
-      <div class="absolute top-[22%] left-[16%] float-2 hidden md:block">
-        <div class="torch"><div class="torch-flame"></div><div class="torch-stick"></div></div>
-      </div>
-      <div class="absolute top-[35%] right-[15%] float-3 hidden md:block">
-      <div class="absolute top-[30%] right-[14%] float-3 hidden md:block">
-        <div class="torch"><div class="torch-flame"></div><div class="torch-stick"></div></div>
-      </div>
-      <div class="absolute bottom-[35%] left-[20%] float-slow hidden lg:block">
-        <div class="torch"><div class="torch-flame"></div><div class="torch-stick"></div></div>
-      </div>
-      <!-- Creeper Face (Left) -->
-      <div class="absolute top-[30%] left-[6%] float-slow hidden lg:block opacity-60">
-        <div class="creeper-face" style="width:64px;height:64px;" id="creeper-left">
-          <!-- Rendered by JS -->
-        </div>
-      <!-- Nether Portal -->
-      <div class="absolute top-[25%] right-[5%] float-slow hidden lg:block">
-        <div class="nether-portal"></div>
-      </div>
-      <div class="absolute bottom-[25%] left-[4%] float-4 hidden lg:block" style="transform: scale(0.7);">
-        <div class="nether-portal"></div>
-      </div>
-      <!-- Creeper Face (Right) -->
-      <div class="absolute bottom-[30%] right-[6%] float-4 hidden lg:block opacity-60">
-        <div class="creeper-face" style="width:64px;height:64px;" id="creeper-right">
-          <!-- Rendered by JS -->
-        </div>
-      <!-- Creeper Faces -->
-      <div class="absolute top-[30%] left-[5%] float-slow hidden lg:block opacity-50">
-        <div class="creeper-face" style="width:56px;height:56px;" id="creeper-left"></div>
-      </div>
-      <div class="absolute bottom-[28%] right-[5%] float-4 hidden lg:block opacity-50">
-        <div class="creeper-face" style="width:56px;height:56px;" id="creeper-right"></div>
-      </div>
-      <!-- Hero Content -->
+      <div class="absolute top-[22%] left-[16%] fl2 hidden md:block"><div class="torch"><div class="torch-fire"></div><div class="torch-body"></div></div></div>
+      <div class="absolute top-[30%] right-[14%] fl3 hidden md:block"><div class="torch"><div class="torch-fire"></div><div class="torch-body"></div></div></div>
+      <div class="absolute bottom-[35%] left-[20%] fls hidden lg:block"><div class="torch"><div class="torch-fire"></div><div class="torch-body"></div></div></div>
+
+      <!-- Portals -->
+      <div class="absolute top-[25%] right-[5%] fls hidden lg:block"><div class="portal"></div></div>
+      <div class="absolute bottom-[25%] left-[4%] fl4 hidden lg:block" style="transform:scale(0.7);"><div class="portal"></div></div>
+
+      <!-- Creepers -->
+      <div class="absolute top-[30%] left-[5%] fls hidden lg:block opacity-50"><div class="creeper" style="width:56px;height:56px;" id="cl"></div></div>
+      <div class="absolute bottom-[28%] right-[5%] fl4 hidden lg:block opacity-50"><div class="creeper" style="width:56px;height:56px;" id="cr"></div></div>
+
+      <!-- Content -->
       <div class="text-center max-w-4xl mx-auto">
-        <!-- Music Bars -->
-        <div class="flex justify-center mb-6 float-gentle fade-in-up" style="animation-delay:0.1s;">
-          <div class="music-bars" id="music-bars"></div>
-        </div>
-        <!-- Subtitle -->
-        <p class="font-pixel text-[0.6rem] sm:text-xs text-mc-diamond tracking-widest mb-6 float-gentle fade-in-up" style="animation-delay: 0.2s;">
-        <p class="font-pixel text-[0.55rem] sm:text-xs tracking-widest mb-6 float-gentle fade-in-up" style="animation-delay:0.2s; color: var(--mc-cyan);">
-          ⛏️ MEMBUKA GERBANG DIMENSI BARU ⛏️
+        <div class="flex justify-center mb-6 flg fade-up" style="animation-delay:0.1s;"><div class="mbars" id="mb1"></div></div>
+
+        <p class="font-pixel text-[0.55rem] sm:text-xs tracking-widest mb-6 flg fade-up" style="animation-delay:0.2s;color:var(--cyan);">
+          &#9935; MEMBUKA GERBANG DIMENSI BARU &#9935;
         </p>
-        <!-- Main Title -->
-        <h1 class="font-pixel text-mc-gold text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-4 float-1 fade-in-up" style="animation: float-1 6s ease-in-out infinite, title-glow 3s ease-in-out infinite, fadeInUp 0.8s ease-out 0.4s forwards; opacity:0;">
-          PENDAFTARAN<br />PESERTA
-        <h1 id="main-title" class="font-pixel text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-4 float-1" style="animation: float-1 6s ease-in-out infinite, title-glow-rainbow 6s linear infinite, fadeInUp 0.8s ease-out 0.4s forwards; opacity:0; color: #FFF;">
-          PENDAFTARAN<br/>PESERTA
+
+        <h1 class="font-pixel text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-4 fl1" style="animation:float1 6s ease-in-out infinite,titleGlow 6s linear infinite,fadeUp 0.8s ease-out 0.4s forwards;opacity:0;color:#FFF;">
+          PENDAFTARAN<br>PESERTA
         </h1>
-        <h2 class="font-pixel text-mc-green text-2xl sm:text-3xl md:text-4xl lg:text-5xl float-2 fade-in-up" style="animation: float-2 7s ease-in-out infinite 0.5s, title-glow 3s ease-in-out infinite 0.5s, fadeInUp 0.8s ease-out 0.6s forwards; opacity:0;">
-        <h2 class="font-pixel text-2xl sm:text-3xl md:text-4xl lg:text-5xl float-2" style="animation: float-2 7s ease-in-out infinite 0.5s, fadeInUp 0.8s ease-out 0.6s forwards; opacity:0; background: linear-gradient(90deg, #5DB735, #2CCDB1, #A855F7, #FCDB05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 4px 0 rgba(0,0,0,0.5));">
+        <h2 class="font-pixel text-2xl sm:text-3xl md:text-4xl lg:text-5xl fl2" style="animation:float2 7s ease-in-out infinite 0.5s,fadeUp 0.8s ease-out 0.6s forwards;opacity:0;background:linear-gradient(90deg,#5DB735,#2CCDB1,#A855F7,#FCDB05);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 4px 0 rgba(0,0,0,0.5));">
           ATTEA VOL. 1
         </h2>
-        <!-- Decorative hotbar -->
-        <div class="flex justify-center mt-10 float-3 fade-in-up" style="animation-delay: 0.8s;">
-        <!-- Hotbar -->
-        <div class="flex justify-center mt-10 float-3 fade-in-up" style="animation-delay:0.8s;">
-          <div class="hotbar">
-            <div class="hotbar-slot active mc-tooltip" data-tooltip="Daftar!">📋</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Komunitas">🌍</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Belajar">📖</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Tumbuh">🌱</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Bersinar">⭐</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Bersama">🤝</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Level Up!">🏆</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Keren!">💎</div>
-            <div class="hotbar-slot mc-tooltip" data-tooltip="Go!">🚀</div>
+
+        <div class="flex justify-center mt-10 fl3 fade-up" style="animation-delay:0.8s;">
+          <div class="hbar">
+            <div class="hslot on tip" data-t="Daftar!">&#128203;</div>
+            <div class="hslot tip" data-t="Komunitas">&#127758;</div>
+            <div class="hslot tip" data-t="Belajar">&#128214;</div>
+            <div class="hslot tip" data-t="Tumbuh">&#127793;</div>
+            <div class="hslot tip" data-t="Bersinar">&#11088;</div>
+            <div class="hslot tip" data-t="Bersama">&#129309;</div>
+            <div class="hslot tip" data-t="Level Up!">&#127942;</div>
+            <div class="hslot tip" data-t="Diamond!">&#128142;</div>
+            <div class="hslot tip" data-t="Go!">&#128640;</div>
           </div>
         </div>
-        <!-- Tagline -->
-        <p class="font-body text-gray-400 text-base sm:text-lg mt-8 max-w-xl mx-auto leading-relaxed float-gentle fade-in-up" style="animation-delay: 1s;">
-          Bersiaplah untuk petualangan terbesar — masuki dunia ATTEA, temukan potensimu, dan <span class="text-mc-gold font-semibold">craft masa depanmu</span> bersama kami.
-        <p class="font-body text-gray-400 text-base sm:text-lg mt-8 max-w-xl mx-auto leading-relaxed float-gentle fade-in-up" style="animation-delay:1s;">
-          Bersiaplah untuk petualangan terbesar — masuki dunia ATTEA, temukan potensimu, dan
-          <span class="font-semibold" style="background: linear-gradient(90deg, #FCDB05, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">craft masa depanmu</span>
+
+        <p class="font-body text-gray-400 text-base sm:text-lg mt-8 max-w-xl mx-auto leading-relaxed flg fade-up" style="animation-delay:1s;">
+          Bersiaplah untuk petualangan terbesar &mdash; masuki dunia ATTEA, temukan potensimu, dan
+          <span class="font-semibold" style="background:linear-gradient(90deg,#FCDB05,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">craft masa depanmu</span>
           bersama kami.
         </p>
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-10 max-w-md mx-auto float-4 fade-in-up" style="animation-delay: 1.2s;">
-        <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-10 max-w-md mx-auto float-4 fade-in-up" style="animation-delay:1.2s;">
-          <div class="stat-card">
-            <span class="stat-number" id="stat-slots">50</span>
-            <span class="stat-number" style="color:var(--mc-xp);">50</span>
-            <span class="stat-label">Slot</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">7</span>
-            <span class="stat-label">Distrik</span>
-            <span class="stat-number" style="color:var(--mc-diamond);">7</span>
-            <span class="stat-label">Hay</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">1</span>
-            <span class="stat-label">Misi</span>
-            <span class="stat-number" style="color:var(--mc-gold);">4</span>
-            <span class="stat-label">Tingkat</span>
-          </div>
+
+        <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-10 max-w-md mx-auto fl4 fade-up" style="animation-delay:1.2s;">
+          <div class="scard"><span class="snum" style="color:var(--green-neon);">50</span><span class="slbl">Slot</span></div>
+          <div class="scard"><span class="snum" style="color:var(--diamond);">7</span><span class="slbl">Hay</span></div>
+          <div class="scard"><span class="snum" style="color:var(--gold);">4</span><span class="slbl">Tingkat</span></div>
         </div>
-        <!-- Scroll CTA -->
-        <div class="mt-12 float-gentle fade-in-up" style="animation-delay: 1.4s;">
-          <a href="#form-section" class="inline-flex flex-col items-center gap-2 text-mc-green hover:text-mc-xp transition-colors group">
-            <span class="font-pixel text-[0.55rem] tracking-wider">SCROLL UNTUK DAFTAR</span>
-        <div class="mt-12 float-gentle fade-in-up" style="animation-delay:1.4s;">
-          <a href="#form-section" class="inline-flex flex-col items-center gap-2 group transition-all" style="color:var(--mc-diamond);">
+
+        <div class="mt-12 flg fade-up" style="animation-delay:1.4s;">
+          <a href="#form-section" class="inline-flex flex-col items-center gap-2 group transition-all" style="color:var(--diamond);">
             <span class="font-pixel text-[0.5rem] tracking-wider group-hover:text-white transition-colors">SCROLL UNTUK DAFTAR</span>
-            <svg class="w-6 h-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="square" d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="w-6 h-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="square" d="M19 9l-7 7-7-7"/></svg>
           </a>
         </div>
       </div>
     </section>
-    <!-- ========== FORM SECTION ========== -->
+
+    <!-- ===== FORM ===== -->
     <section id="form-section" class="py-16 px-4 relative">
-      <!-- Section divider (grass blocks) -->
-      <div class="w-full h-4 mb-12" style="background: repeating-linear-gradient(90deg, #5DB735 0px, #5DB735 16px, #4A9928 16px, #4A9928 32px, #3B7A1E 32px, #3B7A1E 48px); image-rendering: pixelated; border-bottom: 8px solid #866043;"></div>
-      <!-- Grass divider -->
-      <div class="w-full h-4 mb-12" style="background: repeating-linear-gradient(90deg, #5DB735 0px, #5DB735 16px, #4A9928 16px, #4A9928 32px, #3B7A1E 32px, #3B7A1E 48px); border-bottom: 8px solid #866043;"></div>
+      <div class="w-full h-4 mb-12" style="background:repeating-linear-gradient(90deg,#5DB735 0px,#5DB735 16px,#4A9928 16px,#4A9928 32px,#3B7A1E 32px,#3B7A1E 48px);border-bottom:8px solid #866043;"></div>
+
       <div class="max-w-2xl mx-auto">
-        <!-- Form Title -->
-        <div class="text-center mb-10 float-gentle">
-          <h2 class="font-pixel text-mc-gold text-sm sm:text-base md:text-lg mb-3">
-        <div class="text-center mb-8 float-gentle">
-          <h2 class="font-pixel text-sm sm:text-base md:text-lg mb-3" style="background: linear-gradient(90deg, #FCDB05, #F97316, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            📝 FORMULIR PENDAFTARAN
+        <div class="text-center mb-8 flg">
+          <h2 class="font-pixel text-sm sm:text-base md:text-lg mb-3" style="background:linear-gradient(90deg,#FCDB05,#F97316,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            &#128221; FORMULIR PENDAFTARAN
           </h2>
-          <p class="font-body text-gray-400 text-sm sm:text-base">
-            Isi semua field di bawah ini untuk mendaftar sebagai peserta ATTEA Vol. 1
-          </p>
-          <!-- Step Indicator -->
-          <div class="step-indicator mt-6" id="step-indicator">
-            <div class="step-dot active" data-step="1">1</div>
-            <div class="step-line" data-line="1"></div>
-            <div class="step-dot" data-step="2">2</div>
-            <div class="step-line" data-line="2"></div>
-            <div class="step-dot" data-step="3">3</div>
-            <div class="step-line" data-line="3"></div>
-            <div class="step-dot" data-step="4">4</div>
-            <div class="step-line" data-line="4"></div>
-            <div class="step-dot" data-step="5">5</div>
-            <div class="step-line" data-line="5"></div>
-            <div class="step-dot" data-step="6">6</div>
-            <div class="step-line" data-line="6"></div>
-            <div class="step-dot" data-step="7">7</div>
+          <p class="font-body text-gray-400 text-sm sm:text-base">Isi semua field di bawah untuk mendaftar sebagai peserta ATTEA Vol. 1</p>
+
+          <!-- Steps -->
+          <div class="flex items-center justify-center mt-6 flex-wrap gap-y-2" id="steps">
+            <div class="sdot on" data-s="1">1</div><div class="sline" data-sl="1"></div>
+            <div class="sdot" data-s="2">2</div><div class="sline" data-sl="2"></div>
+            <div class="sdot" data-s="3">3</div><div class="sline" data-sl="3"></div>
+            <div class="sdot" data-s="4">4</div><div class="sline" data-sl="4"></div>
+            <div class="sdot" data-s="5">5</div><div class="sline" data-sl="5"></div>
+            <div class="sdot" data-s="6">6</div><div class="sline" data-sl="6"></div>
+            <div class="sdot" data-s="7">7</div><div class="sline" data-sl="7"></div>
+            <div class="sdot" data-s="8">8</div>
           </div>
+
           <!-- XP Bar -->
-          <div class="mt-4 max-w-xs mx-auto">
           <div class="mt-4 max-w-sm mx-auto">
             <div class="flex justify-between mb-1">
-              <span class="font-pixel text-[0.5rem] text-mc-xp">XP PENDAFTARAN</span>
-              <span class="font-pixel text-[0.5rem] text-gray-500" id="xp-percent">0%</span>
-              <span class="font-pixel text-[0.45rem]" style="color:var(--mc-xp);">XP PENDAFTARAN</span>
-              <span class="font-pixel text-[0.45rem] text-gray-500" id="xp-percent">0%</span>
+              <span class="font-pixel text-[0.45rem]" style="color:var(--green-neon);">XP PENDAFTARAN</span>
+              <span class="font-pixel text-[0.45rem] text-gray-500" id="xppct">0%</span>
             </div>
-            <div class="xp-bar-container">
-              <div class="xp-bar-fill" id="xp-bar" style="width: 0%; transition: width 0.5s ease;"></div>
-              <div class="xp-bar-fill" id="xp-bar" style="width:0%;"></div>
-            </div>
+            <div class="xpbar"><div class="xpfill" id="xpbar" style="width:0%;"></div></div>
           </div>
         </div>
-        <!-- The Form -->
-        <!-- THE FORM -->
-        <form id="registration-form" class="mc-glass p-6 sm:p-8 md:p-10 float-2" novalidate>
-          <!-- Field: Nama Lengkap -->
-          <div class="mb-6" id="field-nama">
-            <label class="mc-label" for="nama">
-              <span class="label-icon" style="background:#5DB735;"></span>
-          <!-- 1. Nama Lengkap -->
-          <div class="field-group" id="field-nama" data-step="1">
-            <label class="mc-label" for="nama" style="color:var(--mc-xp);">
-              <span class="label-icon" style="background:var(--mc-xp);"></span>
-              Nama Lengkap Peserta
-            </label>
-            <input
-              type="text"
-              id="nama"
-              name="nama"
-              class="mc-input"
-              placeholder="Masukkan nama lengkapmu..."
-              required
-              autocomplete="name"
-            />
-            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-nama">⚠ Nama wajib diisi, Crafter!</p>
-            <input type="text" id="nama" name="nama" class="mc-input" placeholder="Masukkan nama lengkapmu..." required autocomplete="name" />
-            <p class="text-xs mt-1 hidden" id="error-nama" style="color:var(--mc-redstone);">⚠ Nama wajib diisi, Crafter!</p>
+
+        <!-- FORM -->
+        <form id="regform" class="glass p-6 sm:p-8 md:p-10 fl2" novalidate>
+
+          <!-- 1 Nama -->
+          <div class="fg" data-s="1">
+            <label class="lbl" for="nama" style="color:var(--green-neon);"><span class="lbl-dot" style="background:var(--green-neon);"></span>Nama Lengkap Peserta</label>
+            <input type="text" id="nama" name="nama" class="fi" placeholder="Masukkan nama lengkapmu..." required autocomplete="name">
+            <p class="text-xs mt-1 hidden" id="e-nama" style="color:var(--redstone);">&#9888; Nama wajib diisi!</p>
           </div>
-          <!-- Field: Distrik -->
-          <div class="mb-6" id="field-distrik">
-            <label class="mc-label" for="distrik">
-              <span class="label-icon" style="background:#FCDB05;"></span>
-              Distrik
-          <!-- 2. Nomor HP -->
-          <div class="field-group" id="field-nomorhp" data-step="2">
-            <label class="mc-label" for="nomorhp" style="color:var(--mc-pink);">
-              <span class="label-icon" style="background:var(--mc-pink);"></span>
-              Nomor HP
-            </label>
-            <select id="distrik" name="distrik" class="mc-select" required>
-              <option value="" disabled selected>— Pilih Distrik —</option>
-              <option value="Sabi">🏘️ Sabi</option>
-              <option value="Asyir">🏘️ Asyir</option>
-            <input type="tel" id="nomorhp" name="nomorhp" class="mc-input" placeholder="08xxxxxxxxxx" required pattern="^[0-9+]{10,15}$" />
-            <p class="text-xs mt-1 hidden" id="error-nomorhp" style="color:var(--mc-redstone);">⚠ Masukkan nomor HP yang valid!</p>
+
+          <!-- 2 HP -->
+          <div class="fg" data-s="2">
+            <label class="lbl" for="hp" style="color:var(--pink);"><span class="lbl-dot" style="background:var(--pink);"></span>Nomor HP</label>
+            <input type="tel" id="hp" name="hp" class="fi" placeholder="08xxxxxxxxxx" required>
+            <p class="text-xs mt-1 hidden" id="e-hp" style="color:var(--redstone);">&#9888; Masukkan nomor HP yang valid!</p>
           </div>
-          <!-- 3. Nomor WhatsApp -->
-          <div class="field-group" id="field-whatsapp" data-step="3">
-            <label class="mc-label" for="whatsapp" style="color:var(--mc-emerald);">
-              <span class="label-icon" style="background:var(--mc-emerald);"></span>
-              Nomor WhatsApp Aktif
-            </label>
-            <input type="tel" id="whatsapp" name="whatsapp" class="mc-input" placeholder="08xxxxxxxxxx" required pattern="^[0-9+]{10,15}$" />
+
+          <!-- 3 WA -->
+          <div class="fg" data-s="3">
+            <label class="lbl" for="wa" style="color:var(--emerald);"><span class="lbl-dot" style="background:var(--emerald);"></span>Nomor WhatsApp Aktif</label>
+            <input type="tel" id="wa" name="wa" class="fi" placeholder="08xxxxxxxxxx" required>
             <p class="font-body text-gray-500 text-xs mt-1">Bisa sama dengan nomor HP</p>
-            <p class="text-xs mt-1 hidden" id="error-whatsapp" style="color:var(--mc-redstone);">⚠ Masukkan nomor WA yang valid!</p>
+            <p class="text-xs mt-1 hidden" id="e-wa" style="color:var(--redstone);">&#9888; Masukkan nomor WA yang valid!</p>
           </div>
-          <!-- 4. Tempat Tinggal -->
-          <div class="field-group" id="field-tempat" data-step="4">
-            <label class="mc-label" for="tempat" style="color:var(--mc-gold);">
-              <span class="label-icon" style="background:var(--mc-gold);"></span>
-              Tempat Tinggal
-            </label>
-            <select id="tempat" name="tempat" class="mc-select" required>
-              <option value="" disabled selected>— Pilih Tempat Tinggal —</option>
-              <option value="Hay Asyir">🏘️ Hay Asyir</option>
-              <option value="Hay Sabi">🏘️ Hay Sabi</option>
-              <option value="Zahro">🏘️ Zahro</option>
-              <option value="Darrasah">🏘️ Darrasah</option>
-              <option value="Tabbah">🏘️ Tabbah</option>
-              <option value="Zahro">🏘️ Zahro</option>
-              <option value="Tamin">🏘️ Tamin</option>
-              <option value="Yang lain">🌍 Yang lain..</option>
+
+          <!-- 4 Tempat Tinggal -->
+          <div class="fg" data-s="4">
+            <label class="lbl" for="tempat" style="color:var(--gold);"><span class="lbl-dot" style="background:var(--gold);"></span>Tempat Tinggal</label>
+            <select id="tempat" name="tempat" class="fi" required>
+              <option value="" disabled selected>&#8212; Pilih Tempat Tinggal &#8212;</option>
+              <option value="Hay Asyir">&#127968; Hay Asyir</option>
+              <option value="Hay Sabi">&#127968; Hay Sabi</option>
+              <option value="Zahro">&#127968; Zahro</option>
+              <option value="Darrasah">&#127968; Darrasah</option>
+              <option value="Tabbah">&#127968; Tabbah</option>
+              <option value="Tamin">&#127968; Tamin</option>
+              <option value="Yang lain">&#127758; Yang lain..</option>
             </select>
-            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-distrik">⚠ Pilih distrikmu!</p>
-            <p class="text-xs mt-1 hidden" id="error-tempat" style="color:var(--mc-redstone);">⚠ Pilih tempat tinggalmu!</p>
+            <p class="text-xs mt-1 hidden" id="e-tempat" style="color:var(--redstone);">&#9888; Pilih tempat tinggalmu!</p>
           </div>
-          <!-- Field: Nama Mediator -->
-          <div class="mb-6" id="field-mediator">
-            <label class="mc-label" for="mediator">
-              <span class="label-icon" style="background:#2CCDB1;"></span>
-              Nama Mediator
-          <!-- 5. Tingkatan -->
-          <div class="field-group" id="field-tingkatan" data-step="5">
-            <label class="mc-label" for="tingkatan" style="color:var(--mc-purple);">
-              <span class="label-icon" style="background:var(--mc-purple);"></span>
-              Tingkatan
-            </label>
-            <input
-              type="text"
-              id="mediator"
-              name="mediator"
-              class="mc-input"
-              placeholder="Siapa yang merekomendasikanmu..."
-              required
-            />
-            <p class="font-body text-gray-500 text-xs mt-1">Nama orang yang membawa/merekomendasikanmu</p>
-            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-mediator">⚠ Nama mediator wajib diisi!</p>
-            <select id="tingkatan" name="tingkatan" class="mc-select" required>
-              <option value="" disabled selected>— Pilih Tingkatan —</option>
-              <option value="Dirrosah Khosoh">📚 Dirrosah Khosoh</option>
-              <option value="Idadi 1">🎓 Idadi 1</option>
-              <option value="Idadi 2">🎓 Idadi 2</option>
-              <option value="Idadi 3">🎓 Idadi 3</option>
+
+          <!-- 5 Tingkatan -->
+          <div class="fg" data-s="5">
+            <label class="lbl" for="tingkat" style="color:var(--purple);"><span class="lbl-dot" style="background:var(--purple);"></span>Tingkatan</label>
+            <select id="tingkat" name="tingkat" class="fi" required>
+              <option value="" disabled selected>&#8212; Pilih Tingkatan &#8212;</option>
+              <option value="Dirrosah Khosoh">&#128218; Dirrosah Khosoh</option>
+              <option value="Idadi 1">&#127891; Idadi 1</option>
+              <option value="Idadi 2">&#127891; Idadi 2</option>
+              <option value="Idadi 3">&#127891; Idadi 3</option>
             </select>
-            <p class="text-xs mt-1 hidden" id="error-tingkatan" style="color:var(--mc-redstone);">⚠ Pilih tingkatanmu!</p>
+            <p class="text-xs mt-1 hidden" id="e-tingkat" style="color:var(--redstone);">&#9888; Pilih tingkatanmu!</p>
           </div>
-          <!-- Field: Nomor WhatsApp -->
-          <div class="mb-6" id="field-whatsapp">
-            <label class="mc-label" for="whatsapp">
-              <span class="label-icon" style="background:#80FF20;"></span>
-              Nomor WhatsApp Aktif
-          <!-- 6. Nama Mediator -->
-          <div class="field-group" id="field-mediator" data-step="6">
-            <label class="mc-label" for="mediator" style="color:var(--mc-diamond);">
-              <span class="label-icon" style="background:var(--mc-diamond);"></span>
-              Nama Mediator
-            </label>
-            <input
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              class="mc-input"
-              placeholder="08xxxxxxxxxx"
-              required
-              pattern="^[0-9+]{10,15}$"
-            />
-            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-whatsapp">⚠ Masukkan nomor WA yang valid!</p>
-            <input type="text" id="mediator" name="mediator" class="mc-input" placeholder="Siapa yang merekomendasikanmu..." required />
+
+          <!-- 6 Mediator -->
+          <div class="fg" data-s="6">
+            <label class="lbl" for="mediator" style="color:var(--diamond);"><span class="lbl-dot" style="background:var(--diamond);"></span>Nama Mediator</label>
+            <input type="text" id="mediator" name="mediator" class="fi" placeholder="Siapa yang merekomendasikanmu..." required>
             <p class="font-body text-gray-500 text-xs mt-1">Nama orang yang membawa/merekomendasikanmu</p>
-            <p class="text-xs mt-1 hidden" id="error-mediator" style="color:var(--mc-redstone);">⚠ Nama mediator wajib diisi!</p>
+            <p class="text-xs mt-1 hidden" id="e-mediator" style="color:var(--redstone);">&#9888; Nama mediator wajib diisi!</p>
           </div>
-          <!-- Field: Motivasi -->
-          <div class="mb-8" id="field-motivasi">
-            <label class="mc-label" for="motivasi">
-              <span class="label-icon" style="background:#FF8C00;"></span>
-          <!-- 7. Motivasi -->
-          <div class="field-group" id="field-motivasi" data-step="7">
-            <label class="mc-label" for="motivasi" style="color:var(--mc-orange);">
-              <span class="label-icon" style="background:var(--mc-orange);"></span>
-              Motivasi Ikut ATTEA
-            </label>
-            <textarea
-              id="motivasi"
-              name="motivasi"
-              class="mc-textarea mc-input"
-              placeholder="Ceritakan motivasimu bergabung dengan ATTEA Vol. 1..."
-              required
-              rows="4"
-            ></textarea>
-            <p class="text-red-400 font-body text-xs mt-1 hidden" id="error-motivasi">⚠ Tulis motivasimu, minimal 10 karakter!</p>
-            <textarea id="motivasi" name="motivasi" class="mc-input mc-textarea" placeholder="Ceritakan motivasimu bergabung dengan ATTEA Vol. 1..." required rows="4"></textarea>
-            <p class="text-xs mt-1 hidden" id="error-motivasi" style="color:var(--mc-redstone);">⚠ Tulis motivasimu, minimal 10 karakter!</p>
+
+          <!-- 7 Motivasi -->
+          <div class="fg" data-s="7">
+            <label class="lbl" for="motivasi" style="color:var(--orange);"><span class="lbl-dot" style="background:var(--orange);"></span>Motivasi Ikut ATTEA</label>
+            <textarea id="motivasi" name="motivasi" class="fi" style="min-height:110px;resize:vertical;" placeholder="Ceritakan motivasimu bergabung dengan ATTEA Vol. 1..." required rows="4"></textarea>
+            <p class="text-xs mt-1 hidden" id="e-motivasi" style="color:var(--redstone);">&#9888; Tulis motivasimu, minimal 10 karakter!</p>
           </div>
-          <!-- Crafting Grid Progress (Loading Indicator) -->
-          <div id="crafting-progress" class="hidden mb-6 flex flex-col items-center gap-3">
-          <!-- Crafting Progress -->
-          <div id="crafting-progress" class="hidden flex-col items-center gap-3 my-6">
-            <div class="crafting-grid" id="crafting-grid">
-              <div class="crafting-cell" data-idx="0"></div>
-              <div class="crafting-cell" data-idx="1"></div>
-              <div class="crafting-cell" data-idx="2"></div>
-              <div class="crafting-cell" data-idx="3"></div>
-              <div class="crafting-cell" data-idx="4"></div>
-              <div class="crafting-cell" data-idx="5"></div>
-              <div class="crafting-cell" data-idx="6"></div>
-              <div class="crafting-cell" data-idx="7"></div>
-              <div class="crafting-cell" data-idx="8"></div>
-              <div class="crafting-cell"></div><div class="crafting-cell"></div><div class="crafting-cell"></div>
-              <div class="crafting-cell"></div><div class="crafting-cell"></div><div class="crafting-cell"></div>
-              <div class="crafting-cell"></div><div class="crafting-cell"></div><div class="crafting-cell"></div>
+
+          <!-- 8 Kesiapan -->
+          <div class="fg" data-s="8">
+            <label class="lbl" for="kesiapan" style="color:var(--cyan);"><span class="lbl-dot" style="background:var(--cyan);"></span>Seberapa Siap Ikut Acara Ini?</label>
+            <div class="ready-options">
+              <label class="ready-option">
+                <input type="radio" name="kesiapan" value="50">
+                <div class="ready-card card-50">
+                  <div class="ready-number" style="color:var(--orange);">50<span style="font-size:0.7rem;">%</span></div>
+                  <div class="ready-label">Setengah Siap</div>
+                  <div class="ready-bar"><div class="ready-bar-fill" style="width:50%;background:linear-gradient(90deg,var(--orange),var(--gold));"></div></div>
+                </div>
+              </label>
+              <label class="ready-option">
+                <input type="radio" name="kesiapan" value="100">
+                <div class="ready-card card-100">
+                  <div class="ready-number" style="color:var(--green-neon);">100<span style="font-size:0.7rem;">%</span></div>
+                  <div class="ready-label">FULL SIAP!</div>
+                  <div class="ready-bar"><div class="ready-bar-fill" style="width:100%;background:linear-gradient(90deg,var(--green),var(--green-neon));box-shadow:0 0 8px rgba(128,255,32,0.4);"></div></div>
+                </div>
+              </label>
             </div>
-            <p class="font-pixel text-[0.55rem] text-mc-xp">CRAFTING PENDAFTARAN...</p>
-            <p class="font-pixel text-[0.5rem]" style="color:var(--mc-xp);">⚒️ CRAFTING PENDAFTARAN...</p>
+            <p class="text-xs mt-2 hidden" id="e-kesiapan" style="color:var(--redstone);">&#9888; Pilih tingkat kesiapanmu!</p>
           </div>
-          <!-- Submit Button -->
-          <div class="text-center">
+
+          <!-- Crafting -->
+          <div id="cprog" class="hidden flex-col items-center gap-3 my-6">
+            <div class="cgrid" id="cgrid">
+              <div class="ccell"></div><div class="ccell"></div><div class="ccell"></div>
+              <div class="ccell"></div><div class="ccell"></div><div class="ccell"></div>
+              <div class="ccell"></div><div class="ccell"></div><div class="ccell"></div>
+            </div>
+            <p class="font-pixel text-[0.5rem]" style="color:var(--green-neon);">&#9874; CRAFTING PENDAFTARAN...</p>
+          </div>
+
+          <!-- Submit -->
           <div class="text-center mt-6">
-            <button type="submit" id="submit-btn" class="mc-btn w-full sm:w-auto">
-              ⚔️ DAFTAR SEKARANG ⚔️
-            </button>
+            <button type="submit" id="sbtn" class="mcbtn w-full sm:w-auto">&#9876; DAFTAR SEKARANG &#9876;</button>
           </div>
-          <!-- Additional Note -->
-          <p class="text-center font-body text-gray-500 text-xs mt-6">
-            Dengan mendaftar, kamu siap untuk petualangan epik bersama ATTEA 🎮
-          <p class="text-center font-body text-gray-500 text-xs mt-5">
-            Data kamu akan tersimpan aman di database ATTEA 🛡️
-          </p>
+
+          <p class="text-center font-body text-gray-500 text-xs mt-5">Data kamu tersimpan aman di database ATTEA &#128737;</p>
         </form>
-        <!-- Fun Tip -->
-        <div class="mt-8 p-4 border-l-4 border-mc-gold bg-black/30 float-slow">
-          <p class="font-pixel text-[0.5rem] text-mc-gold mb-2">💡 PRO TIP</p>
-        <!-- Setup Notice -->
-        <div id="setup-notice" class="mt-6 p-4 border-l-4 float-slow" style="border-color:var(--mc-redstone); background:rgba(255,59,59,0.05);">
-          <p class="font-pixel text-[0.5rem] mb-2" style="color:var(--mc-redstone);">⚠️ SETUP REQUIRED</p>
-          <p class="font-body text-gray-400 text-sm leading-relaxed">
-            Ganti <code class="px-1 py-0.5 bg-black/40 text-yellow-400 text-xs">GOOGLE_SCRIPT_URL</code> di kode JavaScript dengan URL Google Apps Script kamu.
-            Lihat panduan di bagian bawah halaman atau buka Console (F12) untuk instruksi lengkap.
-          </p>
-        </div>
+
         <!-- Pro Tip -->
-        <div class="mt-6 p-4 border-l-4 float-slow" style="border-color:var(--mc-diamond); background:rgba(44,205,177,0.05);">
-          <p class="font-pixel text-[0.5rem] mb-2" style="color:var(--mc-diamond);">💡 PRO TIP</p>
-          <p class="font-body text-gray-400 text-sm">
-            Pastikan nomor WhatsApp yang kamu masukkan aktif ya! Kamu akan diarahkan ke grup WhatsApp peserta setelah pendaftaran berhasil.
-            Pastikan nomor WhatsApp yang kamu masukkan aktif! Kamu akan diarahkan ke grup WhatsApp peserta setelah pendaftaran berhasil.
-          </p>
+        <div class="mt-6 p-4 border-l-4 fls" style="border-color:var(--diamond);background:rgba(44,205,177,0.05);">
+          <p class="font-pixel text-[0.5rem] mb-2" style="color:var(--diamond);">&#128161; PRO TIP</p>
+          <p class="font-body text-gray-400 text-sm">Pastikan nomor WhatsApp yang kamu masukkan aktif! Kamu akan diarahkan ke grup WhatsApp peserta setelah pendaftaran berhasil.</p>
         </div>
       </div>
-      <!-- Section divider bottom (stone) -->
-      <div class="w-full h-3 mt-12" style="background: repeating-linear-gradient(90deg, #7F7F7F 0px, #7F7F7F 12px, #6A6A6A 12px, #6A6A6A 24px, #5A5A5A 24px, #5A5A5A 36px); image-rendering: pixelated;"></div>
-      <!-- Stone divider -->
-      <div class="w-full h-3 mt-12" style="background: repeating-linear-gradient(90deg, #7F7F7F 0px, #7F7F7F 12px, #6A6A6A 12px, #6A6A6A 24px, #5A5A5A 24px, #5A5A5A 36px);"></div>
+
+      <div class="w-full h-3 mt-12" style="background:repeating-linear-gradient(90deg,#7F7F7F 0px,#7F7F7F 12px,#6A6A6A 12px,#6A6A6A 24px,#5A5A5A 24px,#5A5A5A 36px);"></div>
     </section>
-    <!-- ========== FOOTER ========== -->
-    <footer class="py-8 px-4 text-center relative">
+
+    <!-- ===== FOOTER ===== -->
     <footer class="py-8 px-4 text-center">
-      <div class="bedrock-strip mb-6"></div>
-      <p class="font-pixel text-[0.5rem] text-gray-600 mb-2">ATTEA VOL. 1 © 2026</p>
-      <div class="flex justify-center mb-4 float-gentle">
-        <div class="music-bars" id="footer-music-bars"></div>
-      </div>
-      <p class="font-pixel text-[0.45rem] text-gray-600 mb-2">ATTEA VOL. 1 &copy; 2026</p>
-      <p class="font-body text-gray-500 text-xs">
-        Dibuat dengan 💚 dan banyak ⛏️ — Semua hak dilindungi
-      </p>
-      <div class="bedrock-strip mt-6"></div>
+      <div class="bedrock mb-6"></div>
+      <div class="flex justify-center mb-4 flg"><div class="mbars" id="mb2"></div></div>
+      <p class="font-pixel text-[0.45rem] text-gray-600 mb-2">ATTEA VOL. 1 &#169; 2026</p>
+      <p class="font-body text-gray-500 text-xs">Dibuat dengan &#128154; dan banyak &#9935; &mdash; Semua hak dilindungi</p>
+      <div class="bedrock mt-6"></div>
     </footer>
   </main>
-  <!-- ==================== REDIRECT NOTICE ==================== -->
-  <!-- REDIRECT NOTICE -->
-  <div id="redirect-notice" class="redirect-notice">
-    <p class="font-pixel text-[0.6rem] text-mc-xp mb-2">🎮 MENUJU GRUP WHATSAPP...</p>
-    <p class="font-body text-gray-400 text-sm">Kamu akan diarahkan dalam <span id="countdown" class="text-mc-gold font-bold">3</span> detik</p>
-    <p class="font-pixel text-[0.55rem] mb-2" style="color:var(--mc-xp);">🎮 MENUJU GRUP WHATSAPP...</p>
-    <p class="font-body text-gray-400 text-sm">Kamu akan diarahkan dalam <span id="countdown" class="font-bold" style="color:var(--mc-gold);">3</span> detik</p>
-    <div class="xp-bar-container mt-3 max-w-xs mx-auto">
-      <div class="xp-bar-fill" id="redirect-xp-bar"></div>
-      <div class="xp-bar-fill" id="redirect-xp-bar" style="width:0%;"></div>
-    </div>
+
+  <!-- Redirect -->
+  <div id="redir" class="redir">
+    <p class="font-pixel text-[0.55rem] mb-2" style="color:var(--green-neon);">&#127918; MENUJU GRUP WHATSAPP...</p>
+    <p class="font-body text-gray-400 text-sm">Kamu akan diarahkan dalam <span id="cd" class="font-bold" style="color:var(--gold);">3</span> detik</p>
+    <div class="xpbar mt-3 max-w-xs mx-auto"><div class="xpfill" id="rxp" style="width:0%;"></div></div>
   </div>
-  <!-- ==================== JAVASCRIPT ==================== -->
+
   <script>
-    // ========================================
-    //  PARTICLE SYSTEM (Square/Pixelated Stars)
-    // ========================================
-    // ================================================
-    //  CONFIG — EDIT THESE VALUES!
-    // ================================================
-    const CONFIG = {
-      // 🔽 PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE 🔽
-      GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwh_yXtLLIfspLkK-kOOaE9j-Yelu2oHncTGLDm1cBKOyYdOkEu7fKdw55yq4-zvbRVkQ/exec',
-      // 🔽 PASTE YOUR WHATSAPP GROUP INVITE LINK HERE 🔽
-      WA_GROUP_LINK: 'https://chat.whatsapp.com/BCV0U5qOTypHJMLpxi8dyC',
-      // Redirect delay in seconds
-      REDIRECT_DELAY: 3,
-    };
-    // ================================================
-    //  PARTICLE SYSTEM (Colorful square stars)
-    // ================================================
-    (function initParticles() {
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-      const PARTICLE_COUNT = 80;
-      const COUNT = 100;
-      function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-      const colors = [
-        'rgba(93,183,53,0.4)',   // green
-        'rgba(252,219,5,0.3)',   // gold
-        'rgba(128,255,32,0.3)',  // xp green
-        'rgba(44,205,177,0.2)',  // diamond
-        'rgba(255,255,255,0.15)',// white
-        'rgba(134,96,67,0.2)',   // dirt
-        'rgba(93,183,53,0.5)',    // green
-        'rgba(252,219,5,0.4)',    // gold
-        'rgba(128,255,32,0.4)',   // xp
-        'rgba(44,205,177,0.35)',  // diamond
-        'rgba(168,85,247,0.35)',  // purple
-        'rgba(236,72,153,0.3)',   // pink
-        'rgba(6,182,212,0.3)',    // cyan
-        'rgba(249,115,22,0.3)',   // orange
-        'rgba(255,59,59,0.25)',   // red
-        'rgba(255,255,255,0.2)',  // white
-        'rgba(99,102,241,0.3)',   // indigo
+    /* ==== CONFIG ==== */
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwh_yXtLLIfspLkK-kOOaE9j-Yelu2oHncTGLDm1cBKOyYdOkEu7fKdw55yq4-zvbRVkQ/exec';
+    var WA_LINK = 'https://chat.whatsapp.com/BCV0U5qOTypHJMLpxi8dyC';
+    var REDIR_SEC = 3;
+
+    /* ==== PARTICLES ==== */
+    (function(){
+      var c = document.getElementById('pcanvas');
+      var x = c.getContext('2d');
+      var ps = [];
+      var N = 100;
+      function sz(){ c.width=innerWidth; c.height=innerHeight; }
+      sz(); addEventListener('resize',sz);
+      var cols = [
+        'rgba(93,183,53,0.5)','rgba(252,219,5,0.4)','rgba(128,255,32,0.4)',
+        'rgba(44,205,177,0.35)','rgba(168,85,247,0.35)','rgba(236,72,153,0.3)',
+        'rgba(6,182,212,0.3)','rgba(249,115,22,0.3)','rgba(255,59,59,0.25)',
+        'rgba(255,255,255,0.2)','rgba(99,102,241,0.3)'
       ];
-      function createParticle() {
-      function create() {
-        return {
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 4 + 2,
-          speedX: (Math.random() - 0.5) * 0.4,
-          speedY: (Math.random() - 0.5) * 0.3 - 0.15,
-          size: Math.random() * 5 + 2,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.3 - 0.1,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          rotation: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 0.02,
-          rot: Math.random() * Math.PI * 2,
-          rotSpd: (Math.random() - 0.5) * 0.03,
-          twinkle: Math.random() * Math.PI * 2,
-          twinkleSpeed: Math.random() * 0.03 + 0.01,
-          twinkleSpd: Math.random() * 0.04 + 0.01,
-        };
-      }
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(createParticle());
-      }
-      for (let i = 0; i < COUNT; i++) particles.push(create());
-      function drawParticle(p) {
-      function draw(p) {
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.rotation);
-        const alpha = 0.5 + Math.sin(p.twinkle) * 0.5;
-        ctx.globalAlpha = alpha;
-        ctx.rotate(p.rot);
-        ctx.globalAlpha = 0.4 + Math.sin(p.twinkle) * 0.6;
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
-        // Some particles get a glow
-        if (p.size > 4) {
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = p.color;
-          ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
-        }
-        ctx.restore();
-      }
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.speedX;
-          p.y += p.speedY;
-          p.rotation += p.rotSpeed;
-          p.twinkle += p.twinkleSpeed;
-          // Wrap around
-          p.rot += p.rotSpd;
-          p.twinkle += p.twinkleSpd;
-          if (p.x < -10) p.x = canvas.width + 10;
-          if (p.x > canvas.width + 10) p.x = -10;
-          if (p.y < -10) p.y = canvas.height + 10;
-          if (p.y > canvas.height + 10) p.y = -10;
-          drawParticle(p);
-          draw(p);
+      for(var i=0;i<N;i++) ps.push({
+        x:Math.random()*c.width, y:Math.random()*c.height,
+        s:Math.random()*5+2, sx:(Math.random()-0.5)*0.5,
+        sy:(Math.random()-0.5)*0.3-0.1,
+        col:cols[Math.floor(Math.random()*cols.length)],
+        r:Math.random()*Math.PI*2, rs:(Math.random()-0.5)*0.03,
+        tw:Math.random()*Math.PI*2, ts:Math.random()*0.04+0.01
+      });
+      function draw(){
+        x.clearRect(0,0,c.width,c.height);
+        ps.forEach(function(p){
+          p.x+=p.sx; p.y+=p.sy; p.r+=p.rs; p.tw+=p.ts;
+          if(p.x<-10) p.x=c.width+10;
+          if(p.x>c.width+10) p.x=-10;
+          if(p.y<-10) p.y=c.height+10;
+          if(p.y>c.height+10) p.y=-10;
+          x.save();
+          x.translate(p.x,p.y);
+          x.rotate(p.r);
+          x.globalAlpha=0.4+Math.sin(p.tw)*0.6;
+          x.fillStyle=p.col;
+          x.fillRect(-p.s/2,-p.s/2,p.s,p.s);
+          if(p.s>4){ x.shadowBlur=8; x.shadowColor=p.col; x.fillRect(-p.s/2,-p.s/2,p.s,p.s); }
+          x.restore();
         });
-        requestAnimationFrame(animate);
+        requestAnimationFrame(draw);
       }
-      animate();
+      draw();
     })();
-    // ========================================
-    //  CREEPER FACE RENDERER (CSS Grid Pixel Art)
-    // ========================================
-    // ================================================
-    //  CURSOR TRAIL
-    // ================================================
-    (function initCursorTrail() {
-      const trailColors = ['#5DB735','#FCDB05','#2CCDB1','#A855F7','#EC4899','#F97316','#06B6D4','#80FF20'];
-      let lastTime = 0;
-      document.addEventListener('mousemove', (e) => {
-        const now = Date.now();
-        if (now - lastTime < 40) return;
-        lastTime = now;
-        const el = document.createElement('div');
-        el.className = 'cursor-particle';
-        const size = Math.random() * 8 + 4;
-        const color = trailColors[Math.floor(Math.random() * trailColors.length)];
-        el.style.cssText = `
-          left:${e.clientX - size/2}px;
-          top:${e.clientY - size/2}px;
-          width:${size}px;
-          height:${size}px;
-          background:${color};
-          box-shadow:0 0 ${size}px ${color};
-        `;
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 800);
+
+    /* ==== CURSOR TRAIL ==== */
+    (function(){
+      var tc = ['#5DB735','#FCDB05','#2CCDB1','#A855F7','#EC4899','#F97316','#06B6D4','#80FF20'];
+      var lt = 0;
+      document.addEventListener('mousemove',function(e){
+        var now = Date.now();
+        if(now-lt<40) return;
+        lt=now;
+        var d=document.createElement('div');
+        d.className='cursor-dot';
+        var s=Math.random()*8+4;
+        var co=tc[Math.floor(Math.random()*tc.length)];
+        d.style.cssText='left:'+(e.clientX-s/2)+'px;top:'+(e.clientY-s/2)+'px;width:'+s+'px;height:'+s+'px;background:'+co+';box-shadow:0 0 '+s+'px '+co+';';
+        document.body.appendChild(d);
+        setTimeout(function(){ d.remove(); },700);
       });
     })();
-    // ================================================
-    //  MUSIC VISUALIZER BARS
-    // ================================================
-    (function initMusicBars() {
-      function createBars(container, count) {
-        const el = document.getElementById(container);
-        if (!el) return;
-        const barColors = ['#FF3B3B','#F97316','#FCDB05','#5DB735','#2CCDB1','#06B6D4','#345EC3','#A855F7','#EC4899','#80FF20','#FF3B3B','#F97316'];
-        for (let i = 0; i < count; i++) {
-          const bar = document.createElement('div');
-          bar.className = 'music-bar';
-          const h = Math.random() * 20 + 6;
-          bar.style.setProperty('--bar-h', h + 'px');
-          bar.style.height = '4px';
-          bar.style.animationDelay = (Math.random() * 0.8) + 's';
-          bar.style.animationDuration = (0.4 + Math.random() * 0.6) + 's';
-          bar.style.background = `linear-gradient(to top, ${barColors[i % barColors.length]}, ${barColors[(i+3) % barColors.length]})`;
-          el.appendChild(bar);
+
+    /* ==== MUSIC BARS ==== */
+    (function(){
+      var bc=['#FF3B3B','#F97316','#FCDB05','#5DB735','#2CCDB1','#06B6D4','#345EC3','#A855F7','#EC4899','#80FF20','#FF3B3B','#F97316'];
+      function make(id,n){
+        var el=document.getElementById(id);
+        if(!el) return;
+        for(var i=0;i<n;i++){
+          var b=document.createElement('div');
+          b.className='mbar';
+          var h=Math.random()*20+6;
+          b.style.setProperty('--bh',h+'px');
+          b.style.height='4px';
+          b.style.animationDelay=(Math.random()*0.8)+'s';
+          b.style.animationDuration=(0.4+Math.random()*0.6)+'s';
+          b.style.background='linear-gradient(to top,'+bc[i%bc.length]+','+bc[(i+3)%bc.length]+')';
+          el.appendChild(b);
         }
       }
-      createBars('music-bars', 12);
-      createBars('footer-music-bars', 8);
+      make('mb1',12);
+      make('mb2',8);
     })();
-    // ================================================
-    //  CREEPER FACE RENDERER
-    // ================================================
-    (function renderCreepers() {
-      // 8x8 grid: 0 = light, 1 = dark (eyes/mouth), 2 = mid
-      const creeperMap = [
-      const map = [
-        [2,0,0,0,0,0,0,2],
-        [0,0,1,1,1,1,0,0],
-        [0,0,1,1,1,1,0,0],
-        [0,0,0,1,1,0,0,0],
-        [0,0,1,1,1,1,0,0],
-        [0,0,1,0,0,1,0,0],
-        [0,0,1,0,0,1,0,0],
-        [2,0,0,0,0,0,0,2],
+
+    /* ==== CREEPER ==== */
+    (function(){
+      var m=[
+        [2,0,0,0,0,0,0,2],[0,0,1,1,1,1,0,0],
+        [0,0,1,1,1,1,0,0],[0,0,0,1,1,0,0,0],
+        [0,0,1,1,1,1,0,0],[0,0,1,0,0,1,0,0],
+        [0,0,1,0,0,1,0,0],[2,0,0,0,0,0,0,2]
       ];
-      function renderCreeper(id) {
-      function render(id) {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.innerHTML = '';
-        creeperMap.forEach(row => {
-          row.forEach(val => {
-            const cell = document.createElement('div');
-            cell.className = val === 1 ? 'dark' : val === 2 ? 'mid' : 'light';
-            el.appendChild(cell);
-          });
-        });
-        map.forEach(row => row.forEach(val => {
-          const c = document.createElement('div');
-          c.className = val === 1 ? 'dark' : val === 2 ? 'mid' : 'light';
+      function r(id){
+        var el=document.getElementById(id);
+        if(!el) return;
+        el.innerHTML='';
+        m.forEach(function(row){row.forEach(function(v){
+          var c=document.createElement('div');
+          c.className=v===1?'d':v===2?'m':'l';
           el.appendChild(c);
-        }));
+        });});
       }
-      renderCreeper('creeper-left');
-      renderCreeper('creeper-right');
-      render('creeper-left');
-      render('creeper-right');
+      r('cl'); r('cr');
     })();
-    // ========================================
-    //  XP BAR (Form Completion Progress)
-    // ========================================
-    const formFields = ['nama', 'distrik', 'mediator', 'whatsapp', 'motivasi'];
-    // ================================================
-    //  XP BAR + STEP INDICATOR
-    // ================================================
-    const formFields = ['nama', 'nomorhp', 'whatsapp', 'tempat', 'tingkatan', 'mediator', 'motivasi'];
-    const xpBar = document.getElementById('xp-bar');
-    const xpPercent = document.getElementById('xp-percent');
-    function updateXP() {
-    function updateProgress() {
-      let filled = 0;
-      formFields.forEach(id => {
-      formFields.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el && el.value.trim().length > 0) filled++;
-        const isFilled = el && el.value.trim().length > 0;
-        if (isFilled) filled++;
-        // Update step dots
-        const dot = document.querySelector(`.step-dot[data-step="${i+1}"]`);
-        const line = document.querySelector(`.step-line[data-line="${i+1}"]`);
-        if (dot) {
-          dot.classList.toggle('done', isFilled);
-          dot.classList.toggle('active', !isFilled);
-        }
-        if (line) {
-          line.classList.toggle('done', isFilled);
-        }
-      });
-      const pct = Math.round((filled / formFields.length) * 100);
-      xpBar.style.width = pct + '%';
-      xpPercent.textContent = pct + '%';
+
+    /* ==== XP + STEPS ==== */
+    var fields=['nama','hp','wa','tempat','tingkat','mediator','motivasi','kesiapan'];
+
+    function getVal(id){
+      if(id==='kesiapan'){
+        var r=document.querySelector('input[name="kesiapan"]:checked');
+        return r?r.value:'';
+      }
+      return document.getElementById(id).value.trim();
     }
-    formFields.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener('input', updateXP);
-        el.addEventListener('change', updateXP);
-        el.addEventListener('input', updateProgress);
-        el.addEventListener('change', updateProgress);
-      }
-    });
-    // ========================================
-    // ================================================
-    //  RIPPLE EFFECT ON INPUTS
-    // ================================================
-    document.querySelectorAll('.mc-input, .mc-select, .mc-textarea').forEach(el => {
-      el.addEventListener('focus', function(e) {
-        const ripple = document.createElement('div');
-        const rect = this.getBoundingClientRect();
-        ripple.style.cssText = `
-          position: absolute; border-radius: 50%;
-          width: 20px; height: 20px;
-          background: rgba(44,205,177,0.3);
-          left: ${e.clientX - rect.left}px;
-          top: ${e.clientY - rect.top}px;
-          transform: translate(-50%,-50%);
-          animation: ripple 0.6s ease-out forwards;
-          pointer-events: none;
-        `;
-        this.parentElement.style.position = 'relative';
-        this.parentElement.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
+
+    function updateXP(){
+      var n=0;
+      fields.forEach(function(id,i){
+        var filled=getVal(id).length>0;
+        if(filled) n++;
+        var dot=document.querySelector('.sdot[data-s="'+(i+1)+'"]');
+        var line=document.querySelector('.sline[data-sl="'+(i+1)+'"]');
+        if(dot){
+          dot.classList.toggle('ok',filled);
+          dot.classList.toggle('on',!filled);
+        }
+        if(line) line.classList.toggle('ok',filled);
       });
-    });
-    // ================================================
-    //  PARALLAX
-    // ================================================
-    document.addEventListener('mousemove', (e) => {
-      const blocks = document.querySelectorAll('.mc-block');
-      const mx = (e.clientX / window.innerWidth - 0.5) * 2;
-      const my = (e.clientY / window.innerHeight - 0.5) * 2;
-      blocks.forEach((block, i) => {
-        const depth = (i + 1) * 2.5;
-        block.style.transform = `translate(${mx * depth}px, ${my * depth}px)`;
-      });
-    });
-    // ================================================
-    //  FORM VALIDATION
-    // ========================================
-    // ================================================
-    function validateField(id, condition, errorId) {
-      const field = document.getElementById(id);
-      const error = document.getElementById(errorId);
-      const wrapper = document.getElementById('field-' + id.replace('whatsapp', 'whatsapp'));
-      if (!condition) {
-        error.classList.remove('hidden');
-        field.classList.add('shake');
-        setTimeout(() => field.classList.remove('shake'), 500);
-        return false;
+      var pct=Math.round((n/fields.length)*100);
+      document.getElementById('xpbar').style.width=pct+'%';
+      document.getElementById('xppct').textContent=pct+'%';
+    }
+
+    fields.forEach(function(id){
+      if(id==='kesiapan'){
+        document.querySelectorAll('input[name="kesiapan"]').forEach(function(r){
+          r.addEventListener('change',updateXP);
+        });
       } else {
-        error.classList.add('hidden');
-        return true;
+        var el=document.getElementById(id);
+        if(el){ el.addEventListener('input',updateXP); el.addEventListener('change',updateXP); }
       }
-      error.classList.add('hidden');
+    });
+
+    /* ==== PARALLAX ==== */
+    document.addEventListener('mousemove',function(e){
+      var bks=document.querySelectorAll('.blk');
+      var mx=(e.clientX/innerWidth-0.5)*2;
+      var my=(e.clientY/innerHeight-0.5)*2;
+      bks.forEach(function(b,i){
+        var d=(i+1)*2.5;
+        b.style.transform='translate('+mx*d+'px,'+my*d+'px)';
+      });
+    });
+
+    /* ==== VALIDATION ==== */
+    function vf(id,ok,eid){
+      var el=id==='kesiapan'?document.querySelector('.ready-options'):document.getElementById(id);
+      var er=document.getElementById(eid);
+      if(!ok){
+        er.classList.remove('hidden');
+        if(el){ el.classList.add('shake'); setTimeout(function(){el.classList.remove('shake');},500); }
+        return false;
+      }
+      er.classList.add('hidden');
       return true;
     }
-    function validateForm() {
-      const nama = document.getElementById('nama').value.trim();
-      const distrik = document.getElementById('distrik').value;
-      const mediator = document.getElementById('mediator').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
-      const motivasi = document.getElementById('motivasi').value.trim();
-      let valid = true;
-      if (!validateField('nama', nama.length > 0, 'error-nama')) valid = false;
-      if (!validateField('distrik', distrik.length > 0, 'error-distrik')) valid = false;
-      if (!validateField('mediator', mediator.length > 0, 'error-mediator')) valid = false;
-      if (!validateField('whatsapp', /^[0-9+]{10,15}$/.test(whatsapp), 'error-whatsapp')) valid = false;
-      if (!validateField('motivasi', motivasi.length >= 10, 'error-motivasi')) valid = false;
-      return valid;
-      const d = id => document.getElementById(id).value.trim();
-      let ok = true;
-      if (!validateField('nama', d('nama').length > 0, 'error-nama')) ok = false;
-      if (!validateField('nomorhp', /^[0-9+]{10,15}$/.test(d('nomorhp')), 'error-nomorhp')) ok = false;
-      if (!validateField('whatsapp', /^[0-9+]{10,15}$/.test(d('whatsapp')), 'error-whatsapp')) ok = false;
-      if (!validateField('tempat', d('tempat').length > 0, 'error-tempat')) ok = false;
-      if (!validateField('tingkatan', d('tingkatan').length > 0, 'error-tingkatan')) ok = false;
-      if (!validateField('mediator', d('mediator').length > 0, 'error-mediator')) ok = false;
-      if (!validateField('motivasi', d('motivasi').length >= 10, 'error-motivasi')) ok = false;
+
+    function validate(){
+      var g=getVal;
+      var ok=true;
+      if(!vf('nama',g('nama').length>0,'e-nama')) ok=false;
+      if(!vf('hp',/^[0-9+]{10,15}$/.test(g('hp')),'e-hp')) ok=false;
+      if(!vf('wa',/^[0-9+]{10,15}$/.test(g('wa')),'e-wa')) ok=false;
+      if(!vf('tempat',g('tempat').length>0,'e-tempat')) ok=false;
+      if(!vf('tingkat',g('tingkat').length>0,'e-tingkat')) ok=false;
+      if(!vf('mediator',g('mediator').length>0,'e-mediator')) ok=false;
+      if(!vf('motivasi',g('motivasi').length>=10,'e-motivasi')) ok=false;
+      if(!vf('kesiapan',g('kesiapan').length>0,'e-kesiapan')) ok=false;
       return ok;
     }
-    // ========================================
-    //  CRAFTING ANIMATION (Loading)
-    // ========================================
-    // ================================================
-    //  CRAFTING ANIMATION
-    // ================================================
-    function playCraftingAnimation() {
-      return new Promise(resolve => {
-        const grid = document.getElementById('crafting-progress');
-        const cells = document.querySelectorAll('.crafting-cell');
+
+    /* ==== CRAFTING ANIM ==== */
+    function craft(){
+      return new Promise(function(resolve){
+        var grid=document.getElementById('cprog');
+        var cells=document.querySelectorAll('.ccell');
         grid.classList.remove('hidden');
         grid.classList.add('flex');
-        const cellColors = ['#FF3B3B','#F97316','#FCDB05','#5DB735','#2CCDB1','#06B6D4','#345EC3','#A855F7','#EC4899'];
-        let idx = 0;
-        const interval = setInterval(() => {
-          if (idx < cells.length) {
-            cells[idx].classList.add('filled');
-            cells[idx].style.background = cellColors[idx];
-            cells[idx].style.boxShadow = `inset 0 0 10px ${cellColors[idx]}40`;
+        var cc=['#FF3B3B','#F97316','#FCDB05','#5DB735','#2CCDB1','#06B6D4','#345EC3','#A855F7','#EC4899'];
+        var idx=0;
+        var iv=setInterval(function(){
+          if(idx<cells.length){
+            cells[idx].style.background=cc[idx];
+            cells[idx].style.boxShadow='inset 0 0 10px '+cc[idx]+'60';
             idx++;
           } else {
-            clearInterval(interval);
-            setTimeout(() => {
+            clearInterval(iv);
+            setTimeout(function(){
               grid.classList.add('hidden');
               grid.classList.remove('flex');
-              cells.forEach(c => c.classList.remove('filled'));
-              cells.forEach(c => {
-                c.classList.remove('filled');
-                c.style.background = '';
-                c.style.boxShadow = '';
-              });
+              cells.forEach(function(c){ c.style.background=''; c.style.boxShadow=''; });
               resolve();
-            }, 400);
+            },400);
           }
-        }, 250);
-        }, 220);
+        },220);
       });
     }
-    // ========================================
-    // ================================================
-    //  PARTICLE BURST (on submit success)
-    // ================================================
-    function particleBurst(x, y) {
-      const colors = ['#FF3B3B','#F97316','#FCDB05','#5DB735','#2CCDB1','#06B6D4','#A855F7','#EC4899','#80FF20'];
-      for (let i = 0; i < 30; i++) {
-        const el = document.createElement('div');
-        const size = Math.random() * 10 + 4;
-        const angle = (Math.PI * 2 / 30) * i + Math.random() * 0.5;
-        const dist = Math.random() * 120 + 40;
-        const dx = Math.cos(angle) * dist;
-        const dy = Math.sin(angle) * dist;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        el.style.cssText = `
-          position:fixed; z-index:9999; pointer-events:none;
-          width:${size}px; height:${size}px;
-          background:${color}; box-shadow: 0 0 ${size}px ${color};
-          left:${x}px; top:${y}px;
-          animation: particle-burst 0.8s ease-out forwards;
-        `;
-        el.style.setProperty('--dx', dx + 'px');
-        el.style.setProperty('--dy', dy + 'px');
-        // Override the animation with per-particle direction
+
+    /* ==== PARTICLE BURST ==== */
+    function burst(bx,by){
+      var cc=['#FF3B3B','#F97316','#FCDB05','#5DB735','#2CCDB1','#06B6D4','#A855F7','#EC4899','#80FF20'];
+      for(var i=0;i<30;i++){
+        var el=document.createElement('div');
+        var s=Math.random()*10+4;
+        var a=(Math.PI*2/30)*i+Math.random()*0.5;
+        var dist=Math.random()*120+40;
+        var dx=Math.cos(a)*dist;
+        var dy=Math.sin(a)*dist;
+        var co=cc[Math.floor(Math.random()*cc.length)];
+        el.style.cssText='position:fixed;z-index:9999;pointer-events:none;width:'+s+'px;height:'+s+'px;background:'+co+';box-shadow:0 0 '+s+'px '+co+';left:'+bx+'px;top:'+by+'px;';
         el.animate([
-          { transform: 'translate(0,0) scale(1)', opacity: 1 },
-          { transform: `translate(${dx}px,${dy}px) scale(0)`, opacity: 0 },
-        ], { duration: 800, easing: 'ease-out', fill: 'forwards' });
+          {transform:'translate(0,0) scale(1)',opacity:1},
+          {transform:'translate('+dx+'px,'+dy+'px) scale(0)',opacity:0}
+        ],{duration:800,easing:'ease-out',fill:'forwards'});
         document.body.appendChild(el);
-        setTimeout(() => el.remove(), 900);
+        setTimeout(function(e){ return function(){ e.remove(); }; }(el),900);
       }
     }
-    // ================================================
-    //  ACHIEVEMENT NOTIFICATION
-    // ========================================
-    function showAchievement(title, message) {
-      // Remove any existing
-    // ================================================
-    function showAchievement(title, message, iconBg, icon) {
-      document.querySelectorAll('.achievement-toast').forEach(el => el.remove());
-      const toast = document.createElement('div');
-      toast.className = 'achievement-toast';
-      toast.innerHTML = `
-        <div class="achievement-icon">🏆</div>
-        <div class="achievement-icon" style="background:${iconBg || 'linear-gradient(135deg,#FCDB05,#C4A800)'};">${icon || '🏆'}</div>
-        <div class="achievement-text">
-          <h4>${title}</h4>
-          <p>${message}</p>
-        </div>
-      `;
-      document.body.appendChild(toast);
-      setTimeout(() => toast.remove(), 5200);
+
+    /* ==== ACHIEVEMENT ==== */
+    function achieve(title,msg,bg,icon){
+      document.querySelectorAll('.ach').forEach(function(e){e.remove();});
+      var t=document.createElement('div');
+      t.className='ach';
+      t.innerHTML='<div class="ach-icon" style="background:'+(bg||'linear-gradient(135deg,#FCDB05,#C4A800)')+';">'+(icon||'&#127942;')+'</div><div class="ach-txt"><h4>'+title+'</h4><p>'+msg+'</p></div>';
+      document.body.appendChild(t);
+      setTimeout(function(){t.remove();},5200);
     }
-      // Auto-remove after animation
-      setTimeout(() => toast.remove(), 4200);
-    // ================================================
-    //  GOOGLE SHEETS SUBMISSION
-    // ================================================
-    async function submitToGoogleSheets(data) {
-      if (CONFIG.GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-        console.warn('⚠️ Google Script URL belum diset! Data tidak terkirim ke spreadsheet.');
-        console.log('📋 Data yang akan dikirim:', data);
-        return { success: true, simulated: true };
-      }
-      try {
-        const response = await fetch(CONFIG.GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        return { success: true };
-      } catch (error) {
-        console.error('❌ Gagal kirim ke Google Sheets:', error);
-        return { success: false, error };
-      }
+
+    /* ==== GOOGLE SHEETS ==== */
+    function sendData(data){
+      return fetch(SCRIPT_URL,{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(data)
+      }).then(function(){
+        return {ok:true};
+      }).catch(function(err){
+        console.error('Error:',err);
+        return {ok:false};
+      });
     }
-    // ========================================
-    //  REDIRECT WITH COUNTDOWN
-    // ========================================
-    function startRedirectCountdown(url, seconds) {
-    // ================================================
-    //  REDIRECT
-    // ================================================
-    function startRedirect(seconds) {
-      const notice = document.getElementById('redirect-notice');
-      const countdownEl = document.getElementById('countdown');
-      const redirectXP = document.getElementById('redirect-xp-bar');
-      const bar = document.getElementById('redirect-xp-bar');
-      notice.classList.add('show');
-      redirectXP.style.transition = `width ${seconds}s linear`;
-      redirectXP.style.width = '100%';
-      bar.style.transition = `width ${seconds}s linear`;
-      requestAnimationFrame(() => { bar.style.width = '100%'; });
-      let remaining = seconds;
-      countdownEl.textContent = remaining;
-      const interval = setInterval(() => {
-        remaining--;
-        countdownEl.textContent = remaining;
-        if (remaining <= 0) {
-          clearInterval(interval);
-          window.open(url, '_blank');
-          window.open(CONFIG.WA_GROUP_LINK, '_blank');
-          notice.classList.remove('show');
-          // Reset form
-          bar.style.transition = 'none';
-          bar.style.width = '0%';
-          document.getElementById('registration-form').reset();
+
+    /* ==== REDIRECT ==== */
+    function redirect(sec){
+      var el=document.getElementById('redir');
+      var cd=document.getElementById('cd');
+      var bar=document.getElementById('rxp');
+      el.classList.add('show');
+      bar.style.transition='width '+sec+'s linear';
+      requestAnimationFrame(function(){ bar.style.width='100%'; });
+      var rem=sec;
+      cd.textContent=rem;
+      var iv=setInterval(function(){
+        rem--;
+        cd.textContent=rem;
+        if(rem<=0){
+          clearInterval(iv);
+          window.open(WA_LINK,'_blank');
+          el.classList.remove('show');
+          bar.style.transition='none';
+          bar.style.width='0%';
+          document.getElementById('regform').reset();
           updateXP();
-          // Reset button
-          updateProgress();
-          const btn = document.getElementById('submit-btn');
-          btn.disabled = false;
-          btn.innerHTML = '⚔️ DAFTAR SEKARANG ⚔️';
+          var btn=document.getElementById('sbtn');
+          btn.disabled=false;
+          btn.innerHTML='&#9876; DAFTAR SEKARANG &#9876;';
+          btn.style.background='';
         }
-      }, 1000);
+      },1000);
     }
-    // ========================================
-    //  FORM SUBMIT HANDLER
-    // ========================================
-    // ================================================
-    //  FORM SUBMIT
-    // ================================================
-    document.getElementById('registration-form').addEventListener('submit', async function(e) {
+
+    /* ==== SUBMIT ==== */
+    document.getElementById('regform').addEventListener('submit',function(e){
       e.preventDefault();
-      if (!validateForm()) return;
-      const btn = document.getElementById('submit-btn');
-      btn.disabled = true;
-      btn.innerHTML = '⏳ LOADING...';
-      // Play crafting animation
-      await playCraftingAnimation();
-      // Simulate data submission
-      setTimeout(() => {
-        // Show Achievement
-        showAchievement('Achievement Get!', 'Pendaftaran ATTEA Vol. 1 berhasil! 🎉');
-      // Gather data
-      const data = {
-        timestamp: new Date().toLocaleString('id-ID'),
-        nama: document.getElementById('nama').value.trim(),
-        nomorHp: document.getElementById('nomorhp').value.trim(),
-        whatsapp: document.getElementById('whatsapp').value.trim(),
-        tempatTinggal: document.getElementById('tempat').value,
-        tingkatan: document.getElementById('tingkatan').value,
-        mediator: document.getElementById('mediator').value.trim(),
-        motivasi: document.getElementById('motivasi').value.trim(),
-      };
-      // Submit to Google Sheets
-      const result = await submitToGoogleSheets(data);
-      if (result.success) {
-        // Particle burst from button
-        const rect = btn.getBoundingClientRect();
-        particleBurst(rect.left + rect.width/2, rect.top + rect.height/2);
-        btn.innerHTML = '✅ TERDAFTAR!';
-        btn.style.background = 'linear-gradient(to bottom, #2CCDB1, #1A8A76)';
-        // Start redirect countdown after 1.5s
-        setTimeout(() => {
-          // Replace this URL with your actual WhatsApp group invite link
-          const waGroupLink = 'https://chat.whatsapp.com/CONTOH_LINK_GRUP';
-          startRedirectCountdown(waGroupLink, 3);
-        }, 1500);
-        if (result.simulated) {
-          showAchievement('⚠️ Demo Mode', 'Data belum terkirim — setup Google Sheet dulu ya!', 'linear-gradient(135deg,#F97316,#C2410C)', '⚙️');
-          setTimeout(() => {
-            showAchievement('Achievement Get!', `${data.nama} berhasil terdaftar di ATTEA Vol. 1! 🎉`, 'linear-gradient(135deg,#FCDB05,#F97316)', '🏆');
-          }, 2000);
-        } else {
-          showAchievement('Achievement Get!', `${data.nama} berhasil terdaftar di ATTEA Vol. 1! 🎉`, 'linear-gradient(135deg,#FCDB05,#F97316)', '🏆');
-        }
-      }, 800);
-        setTimeout(() => startRedirect(CONFIG.REDIRECT_DELAY), 2500);
-      } else {
-        showAchievement('❌ Error!', 'Gagal mengirim data. Coba lagi nanti.', 'linear-gradient(135deg,#FF3B3B,#AA1111)', '💀');
-        btn.disabled = false;
-        btn.innerHTML = '⚔️ DAFTAR SEKARANG ⚔️';
-      }
-    });
-    // ========================================
-    //  INTERSECTION OBSERVER (Fade-in on scroll)
-    // ========================================
-    const observer = new IntersectionObserver((entries) => {
-    // ================================================
-    //  INTERSECTION OBSERVER
-    // ================================================
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
+      if(!validate()) return;
+
+      var btn=document.getElementById('sbtn');
+      btn.disabled=true;
+      btn.innerHTML='&#9203; LOADING...';
+
+      craft().then(function(){
+        var data={
+          timestamp: new Date().toLocaleString('id-ID'),
+          nama: getVal('nama'),
+          nomorHp: getVal('hp'),
+          whatsapp: getVal('wa'),
+          tempatTinggal: getVal('tempat'),
+          tingkatan: getVal('tingkat'),
+          mediator: getVal('mediator'),
+          motivasi: getVal('motivasi'),
+          kesiapan: getVal('kesiapan')+'%'
+        };
+
+        return sendData(data).then(function(res){
+          var rect=btn.getBoundingClientRect();
+          burst(rect.left+rect.width/2, rect.top+rect.height/2);
+          btn.innerHTML='&#9989; TERDAFTAR!';
+          btn.style.background='linear-gradient(to bottom,#2CCDB1,#1A8A76)';
+          achieve('Achievement Get!', data.nama+' berhasil terdaftar di ATTEA Vol. 1! &#127881;','linear-gradient(135deg,#FCDB05,#F97316)','&#127942;');
+          setTimeout(function(){ redirect(REDIR_SEC); },2500);
+        });
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-    document.querySelectorAll('.fade-in-up').forEach(el => {
-      observer.observe(el);
     });
-    // ========================================
-    //  ANIMATED STAT COUNTER
-    // ========================================
-    // ================================================
-    //  STAT COUNTER ANIMATION
-    // ================================================
-    function animateCounter(el, target, duration) {
-      let start = 0;
-      const increment = target / (duration / 16);
-      const inc = target / (duration / 16);
-      function update() {
-        start += increment;
-        if (start >= target) {
-          el.textContent = target;
-          return;
-        }
-        start += inc;
-        if (start >= target) { el.textContent = target; return; }
-        el.textContent = Math.floor(start);
-        requestAnimationFrame(update);
+
+    /* ==== OBSERVERS ==== */
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+      });
+    },{threshold:0.1});
+    document.querySelectorAll('.fade-up').forEach(function(e){obs.observe(e);});
+
+    function animNum(el,target,dur){
+      var s=0; var inc=target/(dur/16);
+      function u(){
+        s+=inc;
+        if(s>=target){el.textContent=target;return;}
+        el.textContent=Math.floor(s);
+        requestAnimationFrame(u);
       }
-      update();
+      u();
     }
-    const statObserver = new IntersectionObserver((entries) => {
-    const statObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.textContent, 10);
-          animateCounter(el, target, 1500);
-          statObserver.unobserve(el);
-          animateCounter(el, parseInt(el.textContent, 10), 1500);
-          statObs.unobserve(el);
+    var sobs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          animNum(e.target,parseInt(e.target.textContent,10),1500);
+          sobs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.stat-number').forEach(el => statObs.observe(el));
-    document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
-    // ========================================
-    //  SOUND EFFECT VISUAL FEEDBACK (no audio)
-    // ========================================
-    document.querySelectorAll('.mc-input, .mc-select, .mc-textarea').forEach(el => {
-      el.addEventListener('focus', function() {
-        this.style.transition = 'all 0.15s ease';
-      });
-    // ================================================
-    //  KONAMI CODE EASTER EGG
-    // ================================================
-    const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-    let kIdx = 0;
-    document.addEventListener('keydown', (e) => {
-      if (e.key === konami[kIdx]) {
-        kIdx++;
-        if (kIdx === konami.length) {
-          kIdx = 0;
-          showAchievement('🕹️ SECRET FOUND!', 'Konami Code activated! +9999 XP', 'linear-gradient(135deg,#A855F7,#6366F1)', '🎮');
-          document.body.style.transition = 'filter 2s';
-          document.body.style.filter = 'hue-rotate(120deg) saturate(1.5)';
-          setTimeout(() => { document.body.style.filter = 'none'; }, 4000);
+    },{threshold:0.5});
+    document.querySelectorAll('.snum').forEach(function(e){sobs.observe(e);});
+
+    /* ==== KONAMI ==== */
+    var kc=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    var ki=0;
+    document.addEventListener('keydown',function(e){
+      if(e.key===kc[ki]){
+        ki++;
+        if(ki===kc.length){
+          ki=0;
+          achieve('&#127918; SECRET FOUND!','Konami Code activated! +9999 XP','linear-gradient(135deg,#A855F7,#6366F1)','&#127918;');
+          document.body.style.transition='filter 2s';
+          document.body.style.filter='hue-rotate(120deg) saturate(1.5)';
+          setTimeout(function(){document.body.style.filter='none';},4000);
         }
-      } else { kIdx = 0; }
+      } else { ki=0; }
     });
-    // ========================================
-    //  PARALLAX on mouse move (subtle)
-    // ========================================
-    document.addEventListener('mousemove', (e) => {
-      const blocks = document.querySelectorAll('.mc-block');
-      const mx = (e.clientX / window.innerWidth - 0.5) * 2;
-      const my = (e.clientY / window.innerHeight - 0.5) * 2;
-    // ================================================
-    //  CONSOLE SETUP INSTRUCTIONS
-    // ================================================
-    console.log('%c⛏️ ATTEA Vol. 1 — Registration System ⛏️', 'font-size:16px;color:#5DB735;font-weight:bold;background:#050510;padding:8px 16px;border:2px solid #5DB735;');
-    console.log('%c📋 SETUP GOOGLE SHEETS:', 'font-size:14px;color:#FCDB05;font-weight:bold;');
-    console.log(`%c
-1. Buat Google Spreadsheet baru
-2. Beri nama kolom di baris pertama:
-   Timestamp | Nama | Nomor HP | WhatsApp | Tempat Tinggal | Tingkatan | Mediator | Motivasi
-3. Klik Extensions > Apps Script
-4. Hapus semua kode, lalu paste kode berikut:
-      blocks.forEach((block, i) => {
-        const depth = (i + 1) * 3;
-        block.style.transform = `translate(${mx * depth}px, ${my * depth}px)`;
-      });
-    });
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([
-    data.timestamp,
-    data.nama,
-    data.nomorHp,
-    data.whatsapp,
-    data.tempatTinggal,
-    data.tingkatan,
-    data.mediator,
-    data.motivasi
-  ]);
-  return ContentService
-    .createTextOutput(JSON.stringify({status: 'success'}))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-    // ========================================
-    //  KONAMI CODE EASTER EGG 🎮
-    // ========================================
-    const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-    let konamiIndex = 0;
-    document.addEventListener('keydown', (e) => {
-      if (e.key === konamiCode[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konamiCode.length) {
-          konamiIndex = 0;
-          showAchievement('🕹️ SECRET FOUND!', 'Kamu menemukan Konami Code! +9999 XP');
-          document.body.style.transition = 'filter 1s';
-          document.body.style.filter = 'hue-rotate(90deg)';
-          setTimeout(() => {
-            document.body.style.filter = 'none';
-          }, 3000);
-        }
-      } else {
-        konamiIndex = 0;
-      }
-    });
-    console.log('%c⛏️ ATTEA Vol. 1 — Selamat datang, Crafter! ⛏️', 'font-size: 16px; color: #5DB735; font-weight: bold; background: #0B0E17; padding: 8px 16px; border: 2px solid #5DB735;');
-    console.log('%c🎮 Coba ketik Konami Code: ↑↑↓↓←→←→BA', 'color: #FCDB05;');
-5. Klik Deploy > New Deployment
-6. Pilih Type: Web App
-7. Execute as: Me
-8. Who has access: Anyone
-9. Klik Deploy, copy URL-nya
-10. Paste URL ke CONFIG.GOOGLE_SCRIPT_URL di file HTML ini
-`, 'color:#CCC;font-size:11px;');
-    console.log('%c🎮 Konami Code: ↑↑↓↓←→←→BA', 'color:#A855F7;');
+
+    console.log('%c ATTEA Vol. 1 Registration System','font-size:14px;color:#5DB735;font-weight:bold;background:#050510;padding:6px 12px;border:2px solid #5DB735;');
   </script>
+
 </body>
 </html>
+
