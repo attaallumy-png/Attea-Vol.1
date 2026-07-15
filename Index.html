@@ -1184,19 +1184,50 @@
       setTimeout(function(){t.remove();},5200);
     }
 
-    /* ==== GOOGLE SHEETS ==== */
+    /* ==== GOOGLE SHEETS (iframe + form method - no CORS issues) ==== */
     function sendData(data){
-      return fetch(SCRIPT_URL,{
-        method:'POST',
-        mode:'no-cors',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(data)
-      }).then(function(){
-        return {ok:true};
-      }).catch(function(err){
-        console.error('Error:',err);
-        return {ok:false};
-      });
+      try {
+        /* Create hidden iframe as form target */
+        var iframeName = 'attea_submit_' + Date.now();
+        var iframe = document.createElement('iframe');
+        iframe.name = iframeName;
+        iframe.style.cssText = 'display:none;width:0;height:0;border:0;';
+        document.body.appendChild(iframe);
+
+        /* Create hidden form */
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = SCRIPT_URL;
+        form.target = iframeName;
+        form.style.display = 'none';
+
+        /* Add all data fields as hidden inputs */
+        var fieldNames = ['timestamp','nama','nomorHp','whatsapp','tempatTinggal','tingkatan','mediator','motivasi','kesiapan'];
+        fieldNames.forEach(function(key){
+          if(data[key] !== undefined){
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = data[key];
+            form.appendChild(input);
+          }
+        });
+
+        document.body.appendChild(form);
+        form.submit();
+
+        /* Cleanup after 10 seconds */
+        setTimeout(function(){
+          try { document.body.removeChild(form); } catch(e){}
+          try { document.body.removeChild(iframe); } catch(e){}
+        }, 10000);
+
+        console.log('Data terkirim ke Google Sheets:', data);
+        return true;
+      } catch(err) {
+        console.error('Error kirim data:', err);
+        return false;
+      }
     }
 
     /* ==== REDIRECT ==== */
@@ -1214,16 +1245,10 @@
         cd.textContent=rem;
         if(rem<=0){
           clearInterval(iv);
-          window.open(WA_LINK,'_blank');
+          window.location.href = WA_LINK;
           el.classList.remove('show');
           bar.style.transition='none';
           bar.style.width='0%';
-          document.getElementById('regform').reset();
-          updateXP();
-          var btn=document.getElementById('sbtn');
-          btn.disabled=false;
-          btn.innerHTML='&#9876; DAFTAR SEKARANG &#9876;';
-          btn.style.background='';
         }
       },1000);
     }
@@ -1237,27 +1262,41 @@
       btn.disabled=true;
       btn.innerHTML='&#9203; LOADING...';
 
-      craft().then(function(){
-        var data={
-          timestamp: new Date().toLocaleString('id-ID'),
-          nama: getVal('nama'),
-          nomorHp: getVal('hp'),
-          whatsapp: getVal('wa'),
-          tempatTinggal: getVal('tempat'),
-          tingkatan: getVal('tingkat'),
-          mediator: getVal('mediator'),
-          motivasi: getVal('motivasi'),
-          kesiapan: getVal('kesiapan')+'%'
-        };
+      /* Collect data */
+      var data={
+        timestamp: new Date().toLocaleString('id-ID'),
+        nama: getVal('nama'),
+        nomorHp: getVal('hp'),
+        whatsapp: getVal('wa'),
+        tempatTinggal: getVal('tempat'),
+        tingkatan: getVal('tingkat'),
+        mediator: getVal('mediator'),
+        motivasi: getVal('motivasi'),
+        kesiapan: getVal('kesiapan')+'%'
+      };
 
-        return sendData(data).then(function(res){
-          var rect=btn.getBoundingClientRect();
-          burst(rect.left+rect.width/2, rect.top+rect.height/2);
-          btn.innerHTML='&#9989; TERDAFTAR!';
-          btn.style.background='linear-gradient(to bottom,#2CCDB1,#1A8A76)';
-          achieve('Achievement Get!', data.nama+' berhasil terdaftar di ATTEA Vol. 1! &#127881;','linear-gradient(135deg,#FCDB05,#F97316)','&#127942;');
-          setTimeout(function(){ redirect(REDIR_SEC); },2500);
-        });
+      /* Play crafting animation, then do everything */
+      craft().then(function(){
+
+        /* 1. Send data to Google Sheets (fire and forget) */
+        sendData(data);
+
+        /* 2. Particle burst from button */
+        var rect=btn.getBoundingClientRect();
+        burst(rect.left+rect.width/2, rect.top+rect.height/2);
+
+        /* 3. Update button */
+        btn.innerHTML='&#9989; TERDAFTAR!';
+        btn.style.background='linear-gradient(to bottom,#2CCDB1,#1A8A76)';
+
+        /* 4. Show Achievement notification */
+        achieve('Achievement Get!', data.nama+' berhasil terdaftar di ATTEA Vol. 1! &#127881;','linear-gradient(135deg,#FCDB05,#F97316)','&#127942;');
+
+        /* 5. After 2.5s, start redirect countdown to WhatsApp */
+        setTimeout(function(){
+          redirect(REDIR_SEC);
+        }, 2500);
+
       });
     });
 
